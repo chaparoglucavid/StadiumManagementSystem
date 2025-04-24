@@ -1,73 +1,103 @@
-@extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+<!DOCTYPE html>
+<html lang="en">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+<!-- Mirrored from phpstack-1384472-5121645.cloudwaysapps.com/template/html/axelit/template/sign_in_1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 23 Apr 2025 19:51:22 GMT -->
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Multipurpose, super flexible, powerful, clean modern responsive bootstrap 5 admin template"
+          name="description">
+    <meta content="admin template, axelit admin template, dashboard template, flat admin template, responsive admin template, web app"
+          name="keywords">
+    <meta content="la-themes" name="author">
+    <link href="{{ asset('dashboard/images/logo/favicon.png') }}" rel="icon" type="image/x-icon">
+    <link href="{{ asset('dashboard/images/logo/favicon.png') }}" rel="shortcut icon" type="image/x-icon">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+    <title>axelit - Premium Admin Template</title>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+    <!--font-awesome-css-->
+    <link href="{{ asset('dashboard/vendor/fontawesome/css/all.css') }}" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com/" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap"
+          rel="stylesheet">
+
+    <!-- iconoir icon css  -->
+    <link href="{{ asset('dashboard/vendor/ionio-icon/css/iconoir.css') }}" rel="stylesheet">
+
+    <!-- tabler icons-->
+    <link href="{{ asset('dashboard/vendor/tabler-icons/tabler-icons.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap css-->
+    <link href="{{ asset('dashboard/vendor/bootstrap/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- App css-->
+    <link href="{{ asset('dashboard/css/style.css') }}" rel="stylesheet" type="text/css">
+
+    <!-- Responsive css-->
+    <link href="{{ asset('dashboard/css/responsive.css') }}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div class="app-wrapper d-block">
+    <div class="">
+        <!-- Body main section starts -->
+        <main class="w-100 p-0">
+            <!-- Login to your Account start -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <div class="login-form-container">
+                            <div class="mb-4">
+                                <a class="logo d-inline-block" href="{{ route('login') }}">
+                                    <img alt="#" src="{{ asset('dashboard/images/logo/1.png') }}" width="250">
+                                </a>
+                            </div>
+                            <div class="form_container">
+
+                                <form class="app-form rounded-control" method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    <div class="mb-3 text-center">
+                                        <h3 class="text-primary-dark">Hesaba daxil olun</h3>
+                                        <p class="f-s-12 text-secondary">Sistemin təhlükəsizliyi üçün şifrənizi gizli saxlayın</p>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Email ünvanı</label>
+                                        <input class="form-control" name="email" type="email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Şifrə</label>
+                                        <input class="form-control" name="password" type="password">
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-light-primary w-100"
+                                           type="submit">Sistemə daxil olun</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
+            <!-- Login to your Account end -->
+        </main>
+        <!-- Body main section ends -->
     </div>
 </div>
-@endsection
+<!-- latest jquery-->
+<script src="{{ asset('assets/js/jquery-3.6.3.min.js') }}"></script>
+
+<!-- Bootstrap js-->
+<script src="{{ asset('dashboard/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
+
+</body>
+
+
+<!-- Mirrored from phpstack-1384472-5121645.cloudwaysapps.com/template/html/axelit/template/sign_in_1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 23 Apr 2025 19:51:22 GMT -->
+</html>
