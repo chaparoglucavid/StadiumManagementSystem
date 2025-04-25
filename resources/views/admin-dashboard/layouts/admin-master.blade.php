@@ -202,14 +202,14 @@
                                     <div class="connect-chat-box">
                                         <div class="avatar-connect-box">
                                             <img alt="logo" class="avatar-connect-logo"
-                                                 src="../assets/images/dashboard/project/avatar.png">
+                                                 src="{{ asset('dashboard/images/dashboard/project/avatar.png')}}">
                                             <img alt="logo" class="dribbble-connect-logo"
-                                                 src="../assets/images/dashboard/project/dribbble.png">
+                                                 src="{{ asset('dashboard/images/dashboard/project/dribbble.png')}}">
                                         </div>
-                                        <img alt="img" src="../assets/images/dashboard/project/chat.png">
+                                        <img alt="img" src="{{ asset('dashboard/images/dashboard/project/chat.png')}}">
                                         <img alt="logo"
                                              class="slack-logo animate__shakeY animate__animated animate__infinite animate__slower"
-                                             src="../assets/images/dashboard/project/slack.png">
+                                             src="{{ asset('dashboard/images/dashboard/project/slack.png')}}">
                                     </div>
                                 </div>
                             </div>
@@ -497,7 +497,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="col-md-6 col-lg-5 col-xxl-3">
                             <div class="p-3">
                                 <h5>Today Tasks</h5>
@@ -689,7 +688,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </main>
@@ -727,9 +725,6 @@
 
 <!-- apexcharts -->
 <script src="{{ asset('dashboard/vendor/apexcharts/apexcharts.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/apexcharts/column/dayjs.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/apexcharts/column/quarterOfYear.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/apexcharts/timelinechart/moment.min.js') }}"></script>
 
 <!-- Customizer js-->
 <script src="{{ asset('dashboard/js/customizer.js') }}"></script>

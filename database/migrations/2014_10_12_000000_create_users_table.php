@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('type')->default('user');
             $table->string('role')->nullable();
-            $table->enum('activityStatus', ['active', 'inactive', 'banned'])->default('active');
+            $table->enum('activityStatus', ['active', 'inactive', 'blocked'])->default('active');
             $table->dateTime('ban_end')->nullable();
             $table->boolean('onlineStatus')->default(false);
             $table->string('password');

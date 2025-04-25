@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('stadiums', function (Blueprint $table) {
             $table->id();
+            $table->string('users_uid');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->enum('status', ['active', 'inactive', 'pending', 'blocked'])->default('pending');
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('users_uid')->references('uid')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

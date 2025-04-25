@@ -64,6 +64,11 @@ class User extends Authenticatable
         return $query->where('activityStatus', 'banned');
     }
 
+    public function stadiums()
+    {
+        return $this->hasMany(Stadiums::class, 'users_uid', 'uid');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

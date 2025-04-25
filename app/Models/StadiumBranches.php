@@ -6,25 +6,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Stadiums extends Model
+class StadiumBranches extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'stadiums';
+    protected $table = 'stadium_branches';
 
     public $primaryKey = 'uid';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'users_uid',
-        'name',
-        'description',
-        'status',
+        'stadiums_uid',
+        'branch_name',
+        'branch_latitude',
+        'branch_longitude',
+        'branch_status',
     ];
 
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'users_uid');
-    }
 }

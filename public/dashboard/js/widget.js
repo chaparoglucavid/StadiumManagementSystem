@@ -341,7 +341,7 @@ FilePond.create(
     document.querySelector('#fileUploaderBox'),
     {
         labelIdle: `
-<img src="../assets/images/dashboard/project/emoji.gif" alt="gif" class="w-40 ">
+<img src="../dashboard/images/dashboard/project/dribbble.png" alt="gif" class="w-40 ">
 <div class="filepond--label-action text-decoration-none">
 <h5 class="text-info f-s-22">No Files Available!</h5>
 <p class="text-dark f-s-14">Unfortunately, there's no open files  right now</p>
