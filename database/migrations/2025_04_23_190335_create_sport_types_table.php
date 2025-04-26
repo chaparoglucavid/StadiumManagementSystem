@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Symfony\Component\HttpKernel\Fragment\RoutableFragmentRenderer;
 
 return new class extends Migration
 {
@@ -12,19 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stadiums', function (Blueprint $table) {
-            $table->id();
+        Schema::create('sport_types', function (Blueprint $table) {
             $table->string('uid')->unique();
-            $table->string('users_uid');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description')->nullable();
-            $table->enum('status', ['active', 'inactive', 'pending'])->default('pending');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();
-
-            $table->index('users_uid');
-            $table->foreign('users_uid')->references('uid')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
         });
+        
     }
 
     /**
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stadiums');
+        Schema::dropIfExists('sport_types');
     }
 };

@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stadium_playgrounds', function (Blueprint $table) {
-            $table->id();
+        Schema::create('stadium_types', function (Blueprint $table) {
+            $table->string('uid')->unique();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stadium_playgrounds');
+        Schema::dropIfExists('stadium_types');
     }
 };

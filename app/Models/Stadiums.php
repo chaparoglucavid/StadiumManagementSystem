@@ -17,11 +17,23 @@ class Stadiums extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
+        'uid',
         'users_uid',
         'name',
         'description',
         'status',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->uid)) {
+                $model->uid = \Illuminate\Support\Str::uuid()->toString();
+            }
+        });
+    }
 
     public function user()
     {

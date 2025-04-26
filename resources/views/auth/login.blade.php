@@ -16,7 +16,7 @@
     <link href="{{ asset('dashboard/images/logo/favicon.png') }}" rel="icon" type="image/x-icon">
     <link href="{{ asset('dashboard/images/logo/favicon.png') }}" rel="shortcut icon" type="image/x-icon">
 
-    <title>axelit - Premium Admin Template</title>
+    <title>Stadium Management System - Sistemə daxil olun</title>
 
     <!--font-awesome-css-->
     <link href="{{ asset('dashboard/vendor/fontawesome/css/all.css') }}" rel="stylesheet">

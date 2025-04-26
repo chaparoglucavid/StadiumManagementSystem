@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class StadiumBranches extends Model
+class StadiumTypes extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'stadium_branches';
+    protected $table = 'stadium_types';
 
     public $primaryKey = 'uid';
     public $incrementing = false;
@@ -18,13 +18,9 @@ class StadiumBranches extends Model
 
     protected $fillable = [
         'uid',
-        'cities_uid',
-        'regions_uid',
-        'stadiums_uid',
-        'branch_name',
-        'branch_latitude',
-        'branch_longitude',
-        'branch_status',
+        'name',
+        'description',
+        'status'
     ];
 
     protected static function boot()
@@ -37,10 +33,4 @@ class StadiumBranches extends Model
             }
         });
     }
-
-    public function stadiums()
-    {
-        return $this->belongsTo(Stadiums::class, 'stadiums_uid', 'uid');
-    }
-
 }

@@ -11,28 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stadium_branches', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique();
             $table->string('cities_uid');
-            $table->string('regions_uid')->nullable();
-            $table->string('stadiums_uid');
-            $table->string('branch_name');
-            $table->string('branch_latitude');
-            $table->string('branch_longitude');
-            $table->string('branch_address');
+            $table->string('region_name', 50);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();
 
             $table->index('cities_uid');
             $table->foreign('cities_uid')->references('uid')->on('cities')->cascadeOnDelete()->cascadeOnUpdate();
-            
-            $table->index('regions_uid');
-            $table->foreign('regions_uid')->references('uid')->on('regions')->cascadeOnDelete()->cascadeOnUpdate();
-        
-            $table->index('stadiums_uid');
-            $table->foreign('stadiums_uid')->references('uid')->on('stadiums')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
@@ -41,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stadium_branches');
+        Schema::dropIfExists('regions');
     }
 };
