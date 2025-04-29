@@ -39,4 +39,14 @@ class Stadiums extends Model
     {
         return $this->belongsTo(User::class, 'users_uid');
     }
+
+    public function stadium_branches()
+    {
+        return $this->hasMany(StadiumBranches::class, 'stadiums_uid');
+    }
+
+    public function features()
+    {
+        return $this->belongsToMany(Features::class, 'stadiums_features', 'stadiums_uid', 'features_uid');
+    }
 }

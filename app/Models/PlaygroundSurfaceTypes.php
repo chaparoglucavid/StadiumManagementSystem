@@ -18,7 +18,7 @@ class PlaygroundSurfaceTypes extends Model
 
     protected $fillable = [
         'uid',
-        'sport_type_uid',
+        'sport_types_uid',
         'name',
         'description',
         'status'
@@ -35,8 +35,8 @@ class PlaygroundSurfaceTypes extends Model
         });
     }
 
-    public function sportType()
+    public function sport_types()
     {
-        return $this->belongsTo(SportTypes::class, 'sport_type_uid', 'uid');
+        return $this->belongsTo(SportTypes::class, 'sport_types_uid', 'uid');
     }
 }

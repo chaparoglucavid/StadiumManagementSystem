@@ -39,9 +39,24 @@ class StadiumPlaygrounds extends Model
         });
     }
 
-    public function stadiums()
+    public function stadium_branches()
     {
-        return $this->belongsTo(Stadiums::class, 'stadiums_uid', 'uid');
+        return $this->belongsTo(StadiumBranches::class, 'stadium_branches_uid', 'uid');
+    }
+
+    public function sport_types()
+    {
+        return $this->belongsTo(SportTypes::class, 'sport_types_uid', 'uid');
+    }
+
+    public function stadium_types()
+    {
+        return $this->belongsTo(StadiumTypes::class, 'stadium_types_uid', 'uid');
+    }
+
+    public function playground_surface_types()
+    {
+        return $this->belongsTo(PlaygroundSurfaceTypes::class, 'playground_surface_types_uid', 'uid');
     }
 
 }

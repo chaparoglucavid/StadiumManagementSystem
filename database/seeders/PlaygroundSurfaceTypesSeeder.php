@@ -29,7 +29,7 @@ class PlaygroundSurfaceTypesSeeder extends Seeder
             if ($sportType) {
                 foreach ($surfaceTypes as $name) {
                     PlaygroundSurfaceTypes::create([
-                        'sport_type_uid' => $sportType->uid,
+                        'sport_types_uid' => $sportType->uid,
                         'name' => $name,
                         'description' => $sport . ' üçün ' . strtolower($name),
                         'status' => true

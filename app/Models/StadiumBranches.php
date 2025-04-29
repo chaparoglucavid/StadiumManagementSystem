@@ -38,6 +38,16 @@ class StadiumBranches extends Model
         });
     }
 
+    public function cities()
+    {
+        return $this->belongsTo(Cities::class, 'cities_uid', 'uid');
+    }
+
+    public function regions()
+    {
+        return $this->belongsTo(Regions::class, 'regions_uid', 'uid');
+    }
+
     public function stadiums()
     {
         return $this->belongsTo(Stadiums::class, 'stadiums_uid', 'uid');

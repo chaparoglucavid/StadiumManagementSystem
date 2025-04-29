@@ -24,6 +24,18 @@ return new class extends Migration
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();
+
+            $table->index('stadium_branches_uid');
+            $table->foreign('stadium_branches_uid')->references('uid')->on('stadium_branches')->cascadeOnDelete()->cascadeOnUpdate();
+
+            $table->index('sport_types_uid');
+            $table->foreign('sport_types_uid')->references('uid')->on('sport_types')->cascadeOnDelete()->cascadeOnUpdate();
+
+            $table->index('stadium_types_uid');
+            $table->foreign('stadium_types_uid')->references('uid')->on('stadium_types')->cascadeOnDelete()->cascadeOnUpdate();
+
+            $table->index('playground_surface_types_uid');
+            $table->foreign('playground_surface_types_uid')->references('uid')->on('playground_surface_types')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

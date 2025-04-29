@@ -32,9 +32,14 @@ class Cities extends Model
         });
     }
 
-    
+
     public function regions()
     {
         return $this->hasMany(Regions::class, 'cities_uid', 'uid');
+    }
+
+    public function stadium_branches()
+    {
+        return $this->hasMany(StadiumBranches::class, 'cities_uid', 'uid');
     }
 }

@@ -6,19 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Regions extends Model
+class Features extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'regions';
+    protected $table = 'features';
 
     public $primaryKey = 'uid';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'cities_uid',
-        'region_name',
+        'uid',
+        'name',
+        'description',
+        'icon',
         'status'
     ];
 
@@ -33,13 +35,8 @@ class Regions extends Model
         });
     }
 
-    public function cities()
+    public function stadiums()
     {
-        return $this->belongsTo(Cities::class, 'cities_uid', 'uid');
-    }
-
-    public function stadium_branches()
-    {
-        return $this->hasMany(StadiumBranches::class, 'cities_uid', 'uid');
+        return $this->belongsToMany(Stadiums::class, 'stadiums_features', 'features_uid', 'stadiums_uid');
     }
 }
