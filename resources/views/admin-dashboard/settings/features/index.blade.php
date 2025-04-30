@@ -41,7 +41,11 @@
                                         <span class="title-text mb-0">{{ $feature->name }}</span>
                                     </td>
                                     <td><span class="title-text mb-0">{{ $feature->description }}</span></td>
-                                    <td><span class="title-text mb-0">{{ $feature->icon }}</span></td>
+                                    <td>
+                                        <span class="title-text mb-0">
+                                            <img src="{{ asset('dashboard/images/icons/'.$feature->icon) }}" height="35">
+                                        </span>
+                                    </td>
                                     <td><span class="title-text mb-0">{{ \Carbon\Carbon::parse($feature->created_at)->format('d.m.Y') }}</span></td>
                                     <td>
                                         <span class="badge text-light-{{ $feature->status === "active" ? 'success' : 'danger' }}">{{ $feature->status === "active" ? 'Aktiv' : 'Deaktiv' }}</span>

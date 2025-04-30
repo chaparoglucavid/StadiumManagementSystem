@@ -45246,9 +45246,11 @@ input[type=range]::-webkit-slider-thumb {
   background-color: rgba(var(--white), 1);
   transition: all 0.3s ease;
 }
-.app-form .floating-form input {
-  padding: 1rem 0.75rem;
-}
+
+/*.app-form .floating-form input {*/
+/*  padding: 1rem 0.75rem;*/
+/*}*/
+
 .app-form .floating-form input::-moz-placeholder {
   opacity: 0;
   visibility: hidden;

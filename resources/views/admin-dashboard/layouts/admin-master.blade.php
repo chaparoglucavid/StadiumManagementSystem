@@ -63,12 +63,6 @@
 <script src="{{ asset('dashboard/vendor/slick/slick.min.js') }}"></script>
 <script src="{{ asset('dashboard/vendor/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('dashboard/js/script.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/filepond/file-encode.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/filepond/validate-size.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/filepond/validate-type.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/filepond/exif-orientation.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/filepond/image-preview.min.js') }}"></script>
-<script src="{{ asset('dashboard/vendor/filepond/filepond.min.js') }}"></script>
 <script src="{{ asset('dashboard/js/project_dashboard.js') }}"></script>
 @yield('js-code')
 </body>
