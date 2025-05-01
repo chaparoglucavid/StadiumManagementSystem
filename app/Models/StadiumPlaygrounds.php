@@ -39,6 +39,11 @@ class StadiumPlaygrounds extends Model
         });
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
     public function stadium_branches()
     {
         return $this->belongsTo(StadiumBranches::class, 'stadium_branches_uid', 'uid');

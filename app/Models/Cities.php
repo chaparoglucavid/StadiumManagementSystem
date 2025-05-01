@@ -32,6 +32,11 @@ class Cities extends Model
         });
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
 
     public function regions()
     {

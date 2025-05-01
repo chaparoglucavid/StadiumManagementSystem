@@ -34,6 +34,11 @@ class SportTypes extends Model
         });
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
     public function playground_surface_types()
     {
         return $this->hasMany(PlaygroundSurfaceTypes::class, 'sport_types_uid', 'uid');

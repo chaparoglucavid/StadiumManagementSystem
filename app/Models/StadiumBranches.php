@@ -38,6 +38,11 @@ class StadiumBranches extends Model
         });
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
     public function cities()
     {
         return $this->belongsTo(Cities::class, 'cities_uid', 'uid');

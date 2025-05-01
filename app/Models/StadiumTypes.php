@@ -33,4 +33,9 @@ class StadiumTypes extends Model
             }
         });
     }
+
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
 }

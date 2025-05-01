@@ -35,6 +35,11 @@ class Stadiums extends Model
         });
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class, 'users_uid');

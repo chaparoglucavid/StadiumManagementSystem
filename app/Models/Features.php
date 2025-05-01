@@ -35,6 +35,11 @@ class Features extends Model
         });
     }
 
+    public function scopeIsActive($query)
+    {
+        return $query->where('status', 'active');
+    }
+
     public function stadiums()
     {
         return $this->belongsToMany(Stadiums::class, 'stadiums_features', 'features_uid', 'stadiums_uid');

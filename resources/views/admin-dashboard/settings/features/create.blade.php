@@ -42,7 +42,7 @@
 
                                 <div class="col-4">
                                     <div class="floating-form mb-3">
-                                        <select class="form-select" id="city" name="status">
+                                        <select class="form-select" id="status" name="status">
                                             <option selected disabled>Status seçin</option>
                                             <option value="active">Aktiv</option>
                                             <option value="inactive">Deaktiv</option>
