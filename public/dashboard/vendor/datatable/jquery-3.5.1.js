@@ -358,9 +358,9 @@ jQuery.extend( {
 	},
 
 	isEmptyObject: function( obj ) {
-		var name;
+        let name;
 
-		for ( name in obj ) {
+        for ( name in obj ) {
 			return false;
 		}
 		return true;
@@ -1453,7 +1453,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
 					adown.contains( bup ) :
-					a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
+					a.compareDocumentPosition && a.compareDocumentPosition( bup ) && 16
 			) );
 		} :
 		function( a, b ) {
@@ -1498,7 +1498,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			1;
 
 		// Disconnected nodes
-		if ( compare & 1 ||
+		if ( compare && 1 ||
 			( !support.sortDetached && b.compareDocumentPosition( a ) === compare ) ) {
 
 			// Choose the first element that is related to our preferred document
@@ -5832,15 +5832,15 @@ jQuery.each( {
 
 		// Add which for click: 1 === left; 2 === middle; 3 === right
 		if ( !event.which && button !== undefined && rmouseEvent.test( event.type ) ) {
-			if ( button & 1 ) {
+			if ( button && 1 ) {
 				return 1;
 			}
 
-			if ( button & 2 ) {
+			if ( button && 2 ) {
 				return 3;
 			}
 
-			if ( button & 4 ) {
+			if ( button && 4 ) {
 				return 2;
 			}
 
@@ -9532,7 +9532,6 @@ jQuery.extend( {
 
 				// Support: IE <=8 - 11 only
 				// Anchor's host property isn't correctly set when s.url is relative
-				urlAnchor.href = urlAnchor.href;
 				s.crossDomain = originAnchor.protocol + "//" + originAnchor.host !==
 					urlAnchor.protocol + "//" + urlAnchor.host;
 			} catch ( e ) {

@@ -79,7 +79,15 @@ class FeaturesController extends Controller
      */
     public function edit(string $id)
     {
-
+        $result = checkIdsAvailable($id);
+        if(!$result)
+        {
+            flasher('Meydança özəlliyi tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'success');
+            return redirect()->back();
+        }
+        $decryptedUid = decrypt($id);
+        $feature = Features::find($decryptedUid);
+        return view('admin-dashboard.settings.features.edit', compact('feature'));
     }
 
     /**
@@ -88,6 +96,15 @@ class FeaturesController extends Controller
     public function update(Request $request, $id)
     {
         try {
+
+            $result = checkIdsAvailable($id);
+            if(!$result)
+            {
+                flasher('Meydança özəlliyi tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'success');
+                return redirect()->back();
+            }
+            $decryptedUid = decrypt($id);
+
             DB::beginTransaction();
 
             $validated = $request->validate([
@@ -97,16 +114,9 @@ class FeaturesController extends Controller
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
 
-            $feature = Features::findOrFail($id);
+            $feature = Features::findOrFail($decryptedUid);
 
             if ($request->hasFile('icon')) {
-                if (!empty($feature->icon)) {
-                    $oldIconPath = public_path('dashboard/images/icons/' . $feature->icon);
-                    if (file_exists($oldIconPath)) {
-                        unlink($oldIconPath);
-                    }
-                }
-
                 $icon = $request->file('icon');
                 $iconName = time() . '-' . $icon->getClientOriginalName();
                 $destinationPath = public_path('dashboard/images/icons');
@@ -114,9 +124,9 @@ class FeaturesController extends Controller
                 $feature->icon = $iconName;
             }
 
-            $feature->name = $request->input('name');
-            $feature->description = $request->input('description');
-            $feature->status = $request->input('status');
+            $feature->name = $request->name;
+            $feature->description = $request->description;
+            $feature->status = $request->status;
             $feature->save();
 
             DB::commit();
@@ -124,6 +134,7 @@ class FeaturesController extends Controller
             flash('Özəllik müvəffəqiyyətlə yeniləndi.', 'success');
             return redirect()->route('admin.features.index');
         } catch (\Exception $exception) {
+            dd($exception);
             DB::rollBack();
             flash("Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin", 'danger');
             return redirect()->back();

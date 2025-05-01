@@ -2354,8 +2354,8 @@
 	    },
 	    p(new_ctx, [dirty]) {
 	      ctx = new_ctx;
-	      if (dirty & /*text*/32) button.innerHTML = /*text*/ctx[5];
-	      if (dirty & /*label*/8 && button_aria_label_value !== (button_aria_label_value = /*label*/ctx[3] ? /*label*/ctx[3] : null)) {
+	      if (dirty && /*text*/32) button.innerHTML = /*text*/ctx[5];
+	      if (dirty && /*label*/8 && button_aria_label_value !== (button_aria_label_value = /*label*/ctx[3] ? /*label*/ctx[3] : null)) {
 	        attr(button, "aria-label", button_aria_label_value);
 	      }
 	      if (dirty & /*classes, secondary*/18 && button_class_value !== (button_class_value = `${/*classes*/ctx[1] || ''} shepherd-button ${/*secondary*/ctx[4] ? 'shepherd-button-secondary' : ''}`)) {

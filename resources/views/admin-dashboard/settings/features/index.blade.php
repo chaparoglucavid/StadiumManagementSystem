@@ -43,19 +43,30 @@
                                     <td><span class="title-text mb-0">{{ $feature->description }}</span></td>
                                     <td>
                                         <span class="title-text mb-0">
-                                            <img src="{{ asset('dashboard/images/icons/'.$feature->icon) }}" height="35">
+                                            <img src="{{ asset('dashboard/images/icons/'.$feature->icon) }}"
+                                                 height="35">
                                         </span>
                                     </td>
-                                    <td><span class="title-text mb-0">{{ \Carbon\Carbon::parse($feature->created_at)->format('d.m.Y') }}</span></td>
-                                    <td>
-                                        <span class="badge text-light-{{ $feature->status === "active" ? 'success' : 'danger' }}">{{ $feature->status === "active" ? 'Aktiv' : 'Deaktiv' }}</span>
+                                    <td><span
+                                            class="title-text mb-0">{{ \Carbon\Carbon::parse($feature->created_at)->format('d.m.Y') }}</span>
                                     </td>
                                     <td>
-                                        <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="{{ route('admin.features.edit', encrypt($feature->uid)) }}" role="button" target="_blank"> <i class="ti ti-eye"></i></a>
-                                        <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button">
-                                            <i class="ti ti-edit"></i>
-                                        </button>
-                                        <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button">
+                                        <span
+                                            class="badge text-light-{{ $feature->status === "active" ? 'success' : 'danger' }}">{{ $feature->status === "active" ? 'Aktiv' : 'Deaktiv' }}</span>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2"
+                                           href="{{ route('admin.features.edit', encrypt($feature->uid)) }}"
+                                           role="button" target="_blank"> <i class="ti ti-eye"></i></a>
+                                        <a href="{{ route('admin.features.edit', encrypt($feature->uid)) }}">
+                                            <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2"
+                                                    data-bs-target="#staticBackdrop" data-bs-toggle="modal"
+                                                    type="button">
+                                                <i class="ti ti-edit"></i>
+                                            </button>
+                                        </a>
+                                        <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn"
+                                                type="button">
                                             <i class="ti ti-trash"></i>
                                         </button>
                                     </td>
