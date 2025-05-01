@@ -51,11 +51,13 @@
                                         <span class="badge text-light-{{ $feature->status === "active" ? 'success' : 'danger' }}">{{ $feature->status === "active" ? 'Aktiv' : 'Deaktiv' }}</span>
                                     </td>
                                     <td>
-                                        <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="orders_details.php" role="button" target="_blank"> <i class="ti ti-eye"></i></a>
+                                        <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2" href="{{ route('admin.features.edit', encrypt($feature->uid)) }}" role="button" target="_blank"> <i class="ti ti-eye"></i></a>
                                         <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2" data-bs-target="#staticBackdrop" data-bs-toggle="modal" type="button">
-                                            <i class="ti ti-edit"></i></button>
+                                            <i class="ti ti-edit"></i>
+                                        </button>
                                         <button class="btn btn-light-danger icon-btn w-30 h-30 b-r-22 delete-btn" type="button">
-                                            <i class="ti ti-trash"></i></button>
+                                            <i class="ti ti-trash"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
