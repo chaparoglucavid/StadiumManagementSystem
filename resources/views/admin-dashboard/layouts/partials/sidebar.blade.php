@@ -51,8 +51,8 @@
                 <ul class="collapse" id="settings">
                     <li><a href="index.html">Ümumi tənzimləmələr</a></li>
                     <li><a href="{{ route('admin.features.index') }}">Meydança özəllikləri</a></li>
-                    <li><a href="index.html">İdman növləri</a></li>
-                    <li><a href="index.html">Meydança növləri</a></li>
+                    <li><a href="{{ route('admin.sport-types.index') }}">İdman növləri</a></li>
+                    <li><a href="{{ route('admin.stadium-types.index') }}">Meydança növləri</a></li>
                     <li><a href="{{ route('admin.playground-surface-types.index') }}">Meydança örtük növləri</a></li>
                     <li><a href="index.html">Ödəniş tənzimləmələri</a></li>
                     <li><a href="ecommerce_dashboard.html">Sistem haqqında</a></li>
