@@ -13,21 +13,16 @@
                 <div class="card-body p-0">
                     <div class="row">
                         @foreach($packages as $package)
-                            <div class="col-sm-2">
+                            <div class="col-sm-2 col-md-4">
                                 <div class="card project-total-card">
                                     <div class="card-body">
-                                        <div class="d-flex position-relative">
+                                        <div class="d-flex position-relative align-items-center justify-content-center">
                                             <h5 class="text-dark txt-ellipsis-1">{{ $package->package_name }}</h5>
-                                            <div class="clock-box">
-                                                <div class="clock">
-                                                    <i class="ti ti-check" style="color: darkred; font-size: 15px"></i>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div>
-                                            <div class="d-flex">
+                                            <div class="d-flex justify-content-center align-items-center">
                                                 <img src="{{ asset('dashboard/images/logo/'.$package->logo) }}"
-                                                     class="img-fluid">
+                                                     class="img-fluid" style="height: 250px">
                                             </div>
                                             <div class="progress-labels mg-t-40">
                                                 <p>
@@ -56,12 +51,26 @@
                                                 </p>
                                             </div>
                                         </div>
+                                        <div class="mt-4 d-flex justify-content-between align-items-center">
+                                            <button class="btn btn-sm btn-outline-info w-100">
+                                                <span>
+                                                    <i class="ti ti-pencil"></i>
+                                                </span>
+                                                Düzəliş et
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger w-100">
+                                                <span>
+                                                    <i class="ti ti-trash"></i>
+                                                </span>
+                                                Sil
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
 
-                        <div class="col-sm-2">
+                        <div class="col-sm-2 col-md-4">
                             <div class="card project-total-card new-package" data-bs-target="#exampleModalToggle"
                                  data-bs-toggle="modal"
                                  type="button">
