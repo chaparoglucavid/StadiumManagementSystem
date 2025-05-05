@@ -54,4 +54,19 @@ class Stadiums extends Model
     {
         return $this->belongsToMany(Features::class, 'stadiums_features', 'stadiums_uid', 'features_uid');
     }
+
+    public function vendor_packages()
+    {
+        return $this->belongsTo(VendorPackages::class, 'vendor_packages_uid');
+    }
+
+    public function subscriptions()
+    {
+        return $this->hasMany(StadiumsSubscriptions::class, 'stadiums_uid');
+    }
+
+    public function currentSubscription()
+    {
+        return $this->hasOne(StadiumsSubscriptions::class, 'stadiums_uid')->where('end_date', '>=', now());
+    }
 }

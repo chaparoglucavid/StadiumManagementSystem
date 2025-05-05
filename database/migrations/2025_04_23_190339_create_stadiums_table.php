@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('uid')->unique();
             $table->string('users_uid');
+            $table->string('vendor_packages_uid')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending'])->default('pending');
@@ -23,7 +24,10 @@ return new class extends Migration
             $table->timestamps();
 
             $table->index('users_uid');
+            $table->index('vendor_packages_uid');
+
             $table->foreign('users_uid')->references('uid')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('vendor_packages_uid')->references('uid')->on('vendor_packages')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 
