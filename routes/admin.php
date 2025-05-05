@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\{
     FeaturesController,
     SportTypesController,
     PlaygroundSurfaceTypesController,
-    StadiumTypesController
+    StadiumTypesController,
+    VendorPackagesController
 };
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:admin'])->group(function () {
@@ -15,4 +16,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:adm
     Route::resource('sport-types', SportTypesController::class);
     Route::resource('stadium-types', StadiumTypesController::class);
     Route::resource('playground-surface-types', PlaygroundSurfaceTypesController::class);
+    Route::resource('vendor-packages', VendorPackagesController::class);
 });

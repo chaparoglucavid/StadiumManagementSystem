@@ -54,7 +54,7 @@
                     <li><a href="{{ route('admin.sport-types.index') }}">İdman növləri</a></li>
                     <li><a href="{{ route('admin.stadium-types.index') }}">Meydança növləri</a></li>
                     <li><a href="{{ route('admin.playground-surface-types.index') }}">Meydança örtük növləri</a></li>
-                    <li><a href="index.html">Ödəniş tənzimləmələri</a></li>
+                    <li><a href="{{ route('admin.vendor-packages.index') }}">Vendor paketləri</a></li>
                     <li><a href="ecommerce_dashboard.html">Sistem haqqında</a></li>
                 </ul>
             </li>

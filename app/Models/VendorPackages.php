@@ -26,6 +26,17 @@ class VendorPackages extends Model
         'status',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->uid)) {
+                $model->uid = \Illuminate\Support\Str::uuid()->toString();
+            }
+        });
+    }
+
     public function stadiums()
     {
         return $this->hasMany(Stadiums::class, 'vendor_packages_uid');

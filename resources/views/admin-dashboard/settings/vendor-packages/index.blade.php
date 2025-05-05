@@ -1,0 +1,189 @@
+@extends('admin-dashboard.layouts.admin-master')
+@section('content')
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card">
+                <div class="card-header mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>
+                            Vendor paketləri
+                        </h4>
+                    </div>
+                </div>
+                <div class="card-body p-0">
+                    <div class="row">
+                        @foreach($packages as $package)
+                            <div class="col-sm-2">
+                                <div class="card project-total-card">
+                                    <div class="card-body">
+                                        <div class="d-flex position-relative">
+                                            <h5 class="text-dark txt-ellipsis-1">{{ $package->package_name }}</h5>
+                                            <div class="clock-box">
+                                                <div class="clock">
+                                                    <i class="ti ti-check" style="color: darkred; font-size: 15px"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="d-flex">
+                                                <img src="{{ asset('dashboard/images/logo/'.$package->logo) }}"
+                                                     class="img-fluid">
+                                            </div>
+                                            <div class="progress-labels mg-t-40">
+                                                <p>
+                                                    {{ $package->package_description }}
+                                                </p>
+                                            </div>
+                                            <div class="progress-labels">
+                                                <p>
+                                                    Paket qiyməti: {{ $package->amount }}₼
+                                                </p>
+                                            </div>
+                                            <div class="progress-labels">
+                                                <p>
+                                                    Komissiya: {{ $package->commission }}%
+                                                </p>
+                                            </div>
+                                            <div class="progress-labels">
+                                                <p>
+                                                    Aktivlik müddəti (gün ilə): {{ $package->commission }}%
+                                                </p>
+                                            </div>
+                                            <div class="progress-labels">
+                                                <p>
+                                                    Status:
+                                                    <span class="badge text-light-{{ $package->status === 'active' ? 'success' : 'danger' }}">{{ $package->status === 'active' ? 'Aktiv' : 'Deaktiv' }}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        <div class="col-sm-2">
+                            <div class="card project-total-card new-package" data-bs-target="#exampleModalToggle"
+                                 data-bs-toggle="modal"
+                                 type="button">
+                                <div class="card-body d-flex justify-content-center align-items-center"
+                                     style="height: 200px;">
+                                    <span style="font-size: 48px;">+</span>
+                                    <strong class="ms-2">Yeni paket əlavə et</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" class="modal fade" id="exampleModalToggle" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Yeni vendor paketi</h5>
+                    <button aria-label="Close" class="btn-close m-0 fs-5" data-bs-dismiss="modal"
+                            type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="app-form">
+                            <form action="{{ route('admin.vendor-packages.store') }}" method="POST"
+                                  enctype="multipart/form-data">
+                                @csrf
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <input type="text" name="package_name" class="form-control"
+                                                   placeholder="none" required>
+                                            <label class="form-label">Paket adını daxil edin</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <input type="text" name="package_description" class="form-control"
+                                                   placeholder="none" required>
+                                            <label class="form-label">Paket haqqında qısa məlumat</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <div class="input-group">
+                                                <input aria-label="Qiyməti daxil edin" class="form-control"
+                                                       placeholder="Qiyməti daxil edin" type="text" name="amount">
+                                                <span class="input-group-text bg-light-secondary b-1-secondary"><i
+                                                        class="ti ti-report-money"></i></span>
+                                                <label class="form-label">Qiymət</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <div class="input-group">
+                                                <input aria-label="Komissiyanı daxil edin" class="form-control"
+                                                       placeholder="Faiz dərəcəsini daxil edin" type="text"
+                                                       name="commission">
+                                                <span class="input-group-text bg-light-secondary b-1-secondary"><i
+                                                        class="ti ti-percentage"></i></span>
+                                                <label class="form-label">Komissiya</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <div class="input-group">
+                                                <input aria-label="Aktivlik müddətini daxil edin" class="form-control"
+                                                       placeholder="Aktivlik müddətini daxil edin" type="text"
+                                                       name="duration">
+                                                <span class="input-group-text bg-light-secondary b-1-secondary"><i
+                                                        class="ti ti-calendar"></i></span>
+                                                <label class="form-label">Aktivlik müddəti</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <input type="file" name="logo" class="form-control">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="floating-form mb-3">
+                                            <select class="form-select" id="status" name="status">
+                                                <option selected disabled>Status seçin</option>
+                                                <option value="active">Aktiv</option>
+                                                <option value="inactive">Deaktiv</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <button class="btn btn-success">
+                                        <span>
+                                            <i class="ti ti-check"></i>
+                                        </span>
+                                            Daxil et
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-light-primary" type="button">Save changes</button>
+                    <button class="btn btn-light-secondary" data-bs-dismiss="modal"
+                            type="button">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
