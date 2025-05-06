@@ -17,4 +17,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:adm
     Route::resource('stadium-types', StadiumTypesController::class);
     Route::resource('playground-surface-types', PlaygroundSurfaceTypesController::class);
     Route::resource('vendor-packages', VendorPackagesController::class);
+    Route::get('get-vendor-package-data/{packageUid}', [VendorPackagesController::class, 'getPackageData'])->name('vendor-packages.getPackageData');
 });

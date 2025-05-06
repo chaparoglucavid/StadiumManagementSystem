@@ -26,6 +26,27 @@ class VendorPackagesController extends Controller
         return view('admin-dashboard.settings.vendor-packages.create');
     }
 
+    public function getPackageData($uid)
+    {
+        $result = checkIdsAvailable($uid);
+        if(!$result)
+        {
+            return response()->json([
+                'status' => false,
+                'message' => 'Məlumat tapılmadı.',
+                'data' => [],
+            ]);
+        }
+
+        $decryptedUid = decrypt($uid);
+
+        return response()->json([
+            'status' => true,
+            'message' => 'Məlumat tapıldı.',
+            'data' => VendorPackages::find($decryptedUid)
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
