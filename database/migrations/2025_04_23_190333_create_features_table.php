@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('features', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique();
-            $table->string('name');
-            $table->string('description')->nullable();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->string('icon')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();

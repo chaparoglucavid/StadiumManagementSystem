@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('cities_uid');
             $table->string('regions_uid')->nullable();
             $table->string('stadiums_uid');
-            $table->string('branch_name');
+            $table->json('branch_name');
             $table->string('branch_latitude');
             $table->string('branch_longitude');
             $table->string('branch_address');
@@ -27,10 +27,10 @@ return new class extends Migration
 
             $table->index('cities_uid');
             $table->foreign('cities_uid')->references('uid')->on('cities')->cascadeOnDelete()->cascadeOnUpdate();
-            
+
             $table->index('regions_uid');
             $table->foreign('regions_uid')->references('uid')->on('regions')->cascadeOnDelete()->cascadeOnUpdate();
-        
+
             $table->index('stadiums_uid');
             $table->foreign('stadiums_uid')->references('uid')->on('stadiums')->cascadeOnDelete()->cascadeOnUpdate();
         });

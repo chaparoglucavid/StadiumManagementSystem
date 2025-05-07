@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('playground_surface_types', function (Blueprint $table) {
             $table->string('uid')->unique();
             $table->string('sport_types_uid');
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();

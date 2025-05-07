@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('sport_types_uid');
             $table->string('stadium_types_uid');
             $table->string('playground_surface_types_uid');
-            $table->string('playground_name');
+            $table->json('playground_name');
             $table->string('playground_status');
             $table->string('capacity');
             $table->enum('status', ['active', 'inactive'])->default('active');

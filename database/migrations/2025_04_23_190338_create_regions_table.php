@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('uid')->unique();
             $table->string('cities_uid');
-            $table->string('region_name', 50);
+            $table->json('region_name', 50);
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();

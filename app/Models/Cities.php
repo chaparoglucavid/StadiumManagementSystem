@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class Cities extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
     protected $table = 'cities';
 
     public $primaryKey = 'uid';
@@ -19,6 +20,10 @@ class Cities extends Model
         'uid',
         'city_name',
         'status'
+    ];
+
+    public $translatable = [
+        'city_name'
     ];
 
     protected static function boot()

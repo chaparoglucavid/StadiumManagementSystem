@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\Translatable\HasTranslations;
 
-class SportTypes extends Model
+class Translations extends Model
 {
-    use HasFactory, SoftDeletes, HasTranslations;
+    use HasFactory, SoftDeletes;
 
-    protected $table = 'sport_types';
+    protected $table = 'translations';
 
     public $primaryKey = 'uid';
     public $incrementing = false;
@@ -19,13 +18,9 @@ class SportTypes extends Model
 
     protected $fillable = [
         'uid',
-        'name',
-        'description',
-        'status'
-    ];
-
-    public $translatable = [
-        'name', 'description'
+        'languages_uid',
+        'key',
+        'value'
     ];
 
     protected static function boot()
@@ -39,13 +34,8 @@ class SportTypes extends Model
         });
     }
 
-    public function scopeIsActive($query)
+    public function languages()
     {
-        return $query->where('status', 'active');
-    }
-
-    public function playground_surface_types()
-    {
-        return $this->hasMany(PlaygroundSurfaceTypes::class, 'sport_types_uid', 'uid');
+        return $this->belongsTo(Languages::class, 'languages_uid', 'uid');
     }
 }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('uid')->unique();
             $table->string('users_uid');
             $table->string('vendor_packages_uid')->nullable();
-            $table->string('name');
-            $table->text('description')->nullable();
+            $table->json('name');
+            $table->json('description')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending'])->default('pending');
             $table->softDeletes();
             $table->timestamps();

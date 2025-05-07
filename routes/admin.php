@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\{
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:admin'])->group(function () {
     Route::get('/admin-dashboard', [DashboardController::class, 'index'])->name('admin-dashboard');
 
+    Route::post('change-language]', [DashboardController::class, 'change_language'])->name('change-language');
+
     Route::resource('features', FeaturesController::class);
     Route::resource('sport-types', SportTypesController::class);
     Route::resource('stadium-types', StadiumTypesController::class);

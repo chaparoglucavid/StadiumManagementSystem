@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('translations', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique();
-            $table->json('city_name');
-            $table->enum('status', ['active', 'inactive'])->default('active');
-            $table->softDeletes();
+            $table->string('languages_uid');
+            $table->string('key')->unique();
+            $table->string('value');
             $table->timestamps();
+
+            $table->index('languages_uid');
+            $table->foreign('languages_uid')->references('uid')->on('languages')->cascadeOnDelete();
         });
     }
 
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('translations');
     }
 };

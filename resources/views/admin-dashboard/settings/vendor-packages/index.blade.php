@@ -13,7 +13,7 @@
                 <div class="card-body p-0">
                     <div class="row">
                         @foreach($packages as $package)
-                            <div class="col-sm-2 col-md-4">
+                            <div class="col-sm-2 col-md-4 col-lg-2">
                                 <div class="card project-total-card">
                                     <div class="card-body">
                                         <div class="d-flex position-relative align-items-center justify-content-center">
@@ -72,7 +72,7 @@
                             </div>
                         @endforeach
 
-                        <div class="col-sm-2 col-md-4">
+                        <div class="col-sm-2 col-md-4 col-lg-2">
                             <div class="card project-total-card new-package" data-bs-target="#newPackageModal"
                                  data-bs-toggle="modal"
                                  type="button">
@@ -103,7 +103,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="app-form">
-                            
+
 
                                 <div class="row">
                                     <div class="col-12">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-light-primary" type="button">Daxil et</button>
+                    <button class="btn btn-light-primary" type="submit">Daxil et</button>
                     <button class="btn btn-light-secondary" data-bs-dismiss="modal"
                             type="button">Bağla
                     </button>
@@ -199,7 +199,7 @@
                     <button aria-label="Close" class="btn-close m-0 fs-5" data-bs-dismiss="modal"
                             type="button"></button>
                 </div>
-                <form id="editPackageForm" method="POST" 
+                <form id="editPackageForm" method="POST"
                                   enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -306,8 +306,8 @@
                 type: 'GET',
                 dataType: 'json',
                 success: function(data) {
-                    const packageData = data.data; 
-                    $('#editPackageForm').attr('action', '/admin/vendor-packages/' + packageId); 
+                    const packageData = data.data;
+                    $('#editPackageForm').attr('action', '/admin/vendor-packages/' + packageId);
                     $('#editPackageModalTitle').text(packageData.package_name + ' məlumatları');
                     $('#editPackageForm input[name="package_name"]').val(packageData.package_name);
                     $('#editPackageForm input[name="package_description"]').val(packageData.package_description);

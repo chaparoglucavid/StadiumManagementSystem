@@ -38,9 +38,9 @@
                                 <tr>
                                     <td>#{{ $key+1 }}</td>
                                     <td class="d-flex align-items-center gap-2">
-                                        <span class="title-text mb-0">{{ $feature->name }}</span>
+                                        <span class="title-text mb-0">{{ $feature->getTranslation('name', app()->getLocale()) }}</span>
                                     </td>
-                                    <td><span class="title-text mb-0">{{ $feature->description }}</span></td>
+                                    <td><span class="title-text mb-0">{{ $feature->getTranslation('description', app()->getLocale()) }}</span></td>
                                     <td>
                                         <span class="title-text mb-0">
                                             <img src="{{ asset('dashboard/images/icons/'.$feature->icon) }}"

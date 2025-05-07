@@ -64,6 +64,25 @@
 <script src="{{ asset('dashboard/vendor/apexcharts/apexcharts.min.js') }}"></script>
 <script src="{{ asset('dashboard/js/script.js') }}"></script>
 <script src="{{ asset('dashboard/js/project_dashboard.js') }}"></script>
+<script>
+
+    $('.language_href_js').on('click', function () {
+        const shortened = $(this).data('lang');
+        $.ajax({
+            url: "{{ route('admin.change-language') }}",
+            method: "POST",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "shortened": shortened
+            },
+            success: function (response) {
+                if (response.status) {
+                    location.reload();
+                }
+            }
+        })
+    })
+</script>
 @yield('js-code')
 </body>
 </html>

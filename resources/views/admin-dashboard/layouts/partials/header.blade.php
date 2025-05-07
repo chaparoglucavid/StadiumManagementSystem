@@ -8,14 +8,36 @@
             </div>
 
             <div class="col-6 col-sm-8 d-flex align-items-center justify-content-end header-right p-0">
-
                 <ul class="d-flex align-items-center">
+                    <li class="header-language">
+                        <div class="flex-shrink-0 dropdown" id="lang_selector">
+                            <a aria-expanded="false" class="d-block head-icon ps-0" data-bs-toggle="dropdown" href="#">
+                                <div class="lang-flag lang-en ">
+                                  <span class="flag rounded-circle overflow-hidden">
+                                    <i class="flag-icon flag-icon-usa flag-icon-squared b-r-10 f-s-22"></i>
+                                  </span>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu language-dropdown header-card border-0" style="">
+                                <li class="lang lang-en selected dropdown-item p-2 language_href_js" data-lang="en" data-bs-placement="top"
+                                    data-bs-toggle="tooltip" title="US">
+                                      <span class="d-flex align-items-center">
+                                        <i class="flag-icon flag-icon-usa flag-icon-squared b-r-10 f-s-22"></i>
+                                        <span class="ps-2">English</span>
+                                      </span>
+                                </li>
 
-                    
+                                <li class="lang lang-en selected dropdown-item p-2 language_href_js" data-lang="az" data-bs-placement="top"
+                                    data-bs-toggle="tooltip" title="US">
+                                      <span class="d-flex align-items-center">
+                                        <i class="flag-icon flag-icon-usa flag-icon-squared b-r-10 f-s-22"></i>
+                                        <span class="ps-2">Azərbaycan dili</span>
+                                      </span>
+                                </li>
+                            </ul>
+                        </div>
 
-                    
-                    
-                    
+                    </li>
                     <li class="header-dark">
                         <div class="sun-logo head-icon">
                             <i class="iconoir-sun-light"></i>
@@ -73,7 +95,7 @@
                                             </a>
                                         </div>
                                     </li>
-                                                                        
+
                                     <li>
                                         <a class="f-w-500" href="pricing.html" target="_blank">
                                             <i class="iconoir-dollar pe-1 f-s-20"></i>
@@ -90,7 +112,8 @@
                                     <li>
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
-                                            <button class="w-100 mb-0 btn btn-light-danger btn-sm justify-content-center">
+                                            <button
+                                                class="w-100 mb-0 btn btn-light-danger btn-sm justify-content-center">
                                                 <span>
                                                     <i class="ph-duotone  ph-sign-out pe-1 f-s-20"></i>
                                                 </span>

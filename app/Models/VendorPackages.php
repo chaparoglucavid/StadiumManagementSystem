@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class VendorPackages extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
 
     protected $table = 'vendor_packages';
 
@@ -24,6 +25,10 @@ class VendorPackages extends Model
         'logo',
         'duration',
         'status',
+    ];
+
+    public $translatable = [
+        'package_name', 'package_description'
     ];
 
     protected static function boot()

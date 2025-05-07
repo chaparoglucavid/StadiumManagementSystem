@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('sport_types', function (Blueprint $table) {
             $table->string('uid')->unique();
-            $table->string('name')->unique();
-            $table->text('description')->nullable();
+            $table->json('name')->unique();
+            $table->json('description')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();
             $table->timestamps();
         });
-        
+
     }
 
     /**

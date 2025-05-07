@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Translatable\HasTranslations;
 
 class StadiumBranches extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, HasTranslations;
 
     protected $table = 'stadium_branches';
 
@@ -25,6 +26,10 @@ class StadiumBranches extends Model
         'branch_latitude',
         'branch_longitude',
         'branch_status',
+    ];
+
+    public $translatable = [
+        'branch_name'
     ];
 
     protected static function boot()

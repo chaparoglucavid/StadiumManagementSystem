@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('vendor_packages', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique();
-            $table->string('package_name');
-            $table->string('package_description')->nullable();
+            $table->json('package_name');
+            $table->json('package_description')->nullable();
             $table->double('amount', 8, 2);
             $table->double('commission', 8,2);
             $table->string('logo')->nullable();
