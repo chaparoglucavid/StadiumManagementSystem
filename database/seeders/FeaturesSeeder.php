@@ -15,104 +15,144 @@ class FeaturesSeeder extends Seeder
     {
         $features = [
             [
-                'name' => 'VIP Zal',
-                'description' => 'VIP qonaqlar üçün xüsusi komfort sahəsi',
-                'icon' => 'vip.png', // FontAwesome icon
+                'name' => ['az' => 'VIP Zal', 'en' => 'VIP Lounge'],
+                'description' => [
+                    'az' => 'VIP qonaqlar üçün xüsusi komfort sahəsi',
+                    'en' => 'Exclusive comfort area for VIP guests',
+                ],
+                'icon' => 'vip.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Avtodayanacaq',
-                'description' => 'Azarkeşlər və qonaqlar üçün geniş avtodayanacaq sahəsi',
+                'name' => ['az' => 'Avtodayanacaq', 'en' => 'Parking Lot'],
+                'description' => [
+                    'az' => 'Azarkeşlər və qonaqlar üçün geniş avtodayanacaq sahəsi',
+                    'en' => 'Spacious parking for fans and guests',
+                ],
                 'icon' => 'electric-car.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Qida Zonası',
-                'description' => 'Stadion daxilində yemək və içki məntəqələri',
+                'name' => ['az' => 'Qida Zonası', 'en' => 'Food Court'],
+                'description' => [
+                    'az' => 'Stadion daxilində yemək və içki məntəqələri',
+                    'en' => 'Food and beverage points inside the stadium',
+                ],
                 'icon' => 'cafe.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Pulsuz Wi-Fi',
-                'description' => 'Ziyarətçilər üçün yüksək sürətli pulsuz internet',
+                'name' => ['az' => 'Pulsuz Wi-Fi', 'en' => 'Free Wi-Fi'],
+                'description' => [
+                    'az' => 'Ziyarətçilər üçün yüksək sürətli pulsuz internet',
+                    'en' => 'High-speed free internet for visitors',
+                ],
                 'icon' => 'wifi-router.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Təcili Yardım Xidməti',
-                'description' => 'Təcili tibbi yardım məntəqələri',
+                'name' => ['az' => 'Təcili Yardım Xidməti', 'en' => 'Emergency Medical Service'],
+                'description' => [
+                    'az' => 'Təcili tibbi yardım məntəqələri',
+                    'en' => 'Emergency medical service points',
+                ],
                 'icon' => 'ambulance.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Əlillər üçün Əlçatanlıq',
-                'description' => 'Əlillər üçün xüsusi giriş və xidmətlər',
+                'name' => ['az' => 'Əlillər üçün Əlçatanlıq', 'en' => 'Accessibility for Disabled'],
+                'description' => [
+                    'az' => 'Əlillər üçün xüsusi giriş və xidmətlər',
+                    'en' => 'Dedicated access and services for the disabled',
+                ],
                 'icon' => 'toilet.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'LED Ekranlar',
-                'description' => 'Böyük ölçülü yüksək keyfiyyətli LED ekranlar',
+                'name' => ['az' => 'LED Ekranlar', 'en' => 'LED Screens'],
+                'description' => [
+                    'az' => 'Böyük ölçülü yüksək keyfiyyətli LED ekranlar',
+                    'en' => 'Large high-quality LED screens',
+                ],
                 'icon' => 'monitor.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Uşaqlar üçün Əyləncə Sahəsi',
-                'description' => 'Uşaqlar üçün oyun və əyləncə məkanları',
+                'name' => ['az' => 'Uşaqlar üçün Əyləncə Sahəsi', 'en' => 'Kids Entertainment Area'],
+                'description' => [
+                    'az' => 'Uşaqlar üçün oyun və əyləncə məkanları',
+                    'en' => 'Play and entertainment areas for children',
+                ],
                 'icon' => 'playground.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Paltardəyişmə Otaqları',
-                'description' => 'Komandalar üçün geniş və rahat paltardəyişmə otaqları',
+                'name' => ['az' => 'Paltardəyişmə Otaqları', 'en' => 'Changing Rooms'],
+                'description' => [
+                    'az' => 'Komandalar üçün geniş və rahat paltardəyişmə otaqları',
+                    'en' => 'Spacious and comfortable changing rooms for teams',
+                ],
                 'icon' => 'closet.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Təlim Mərkəzi',
-                'description' => 'Komandalar üçün xüsusi məşq və hazırlıq sahələri',
+                'name' => ['az' => 'Təlim Mərkəzi', 'en' => 'Training Center'],
+                'description' => [
+                    'az' => 'Komandalar üçün xüsusi məşq və hazırlıq sahələri',
+                    'en' => 'Special training and preparation areas for teams',
+                ],
                 'icon' => 'training.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Əlverişli İqlimləşdirilmiş Sahələr',
-                'description' => 'Soyudulmuş və ya isitilmiş sahələr (klimat kontrol)',
+                'name' => ['az' => 'Əlverişli İqlimləşdirilmiş Sahələr', 'en' => 'Climate-Controlled Areas'],
+                'description' => [
+                    'az' => 'Soyudulmuş və ya isitilmiş sahələr (klimat kontrol)',
+                    'en' => 'Heated or cooled climate-controlled areas',
+                ],
                 'icon' => 'field.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Oyun Sahəsi İşıqlandırması',
-                'description' => 'Gecə oyunları üçün yüksək keyfiyyətli işıqlandırma sistemi',
+                'name' => ['az' => 'Oyun Sahəsi İşıqlandırması', 'en' => 'Field Lighting'],
+                'description' => [
+                    'az' => 'Gecə oyunları üçün yüksək keyfiyyətli işıqlandırma sistemi',
+                    'en' => 'High-quality lighting system for night games',
+                ],
                 'icon' => 'light.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Tribunalar ',
-                'description' => 'Azarkeşlər üçün tribunalar',
+                'name' => ['az' => 'Tribunalar', 'en' => 'Stands'],
+                'description' => [
+                    'az' => 'Azarkeşlər üçün tribunalar',
+                    'en' => 'Stands for fans',
+                ],
                 'icon' => 'tribune.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Elektron Bilet Sistemi',
-                'description' => 'Rəqəmsal bilet satışı və yoxlanışı üçün sistem',
+                'name' => ['az' => 'Elektron Bilet Sistemi', 'en' => 'Electronic Ticketing System'],
+                'description' => [
+                    'az' => 'Rəqəmsal bilet satışı və yoxlanışı üçün sistem',
+                    'en' => 'System for digital ticketing and validation',
+                ],
                 'icon' => 'tickets.png',
                 'status' => 'active',
             ],
             [
-                'name' => 'Təhlükəsizlik Kameraları',
-                'description' => 'Təhlükəsizlik üçün 24/7 kameralarla nəzarət sistemi',
+                'name' => ['az' => 'Təhlükəsizlik Kameraları', 'en' => 'Security Cameras'],
+                'description' => [
+                    'az' => 'Təhlükəsizlik üçün 24/7 kameralarla nəzarət sistemi',
+                    'en' => '24/7 surveillance system with security cameras',
+                ],
                 'icon' => 'cctv-camera.png',
                 'status' => 'active',
             ],
         ];
 
         foreach ($features as $feature) {
-            Features::create([
-                'name' => $feature['name'],
-                'description' => $feature['description'],
-                'icon' => $feature['icon'],
-                'status' => $feature['status'],
-            ]);
+            Features::create($feature);
         }
     }
 }

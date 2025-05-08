@@ -14,9 +14,30 @@ class StadiumTypesSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            ['name' => 'Açıq Stadion', 'description' => 'Tam açıq stadion', 'status' => true],
-            ['name' => 'Qapalı Stadion', 'description' => 'Tam qapalı stadion', 'status' => true],
-            ['name' => 'Yarı Açıq', 'description' => 'Qismən qapalı stadion', 'status' => true],
+            [
+                'name' => ['az' => 'Açıq Stadion', 'en' => 'Open Stadium'],
+                'description' => [
+                    'az' => 'Tam açıq stadion',
+                    'en' => 'Completely open stadium',
+                ],
+                'status' => true,
+            ],
+            [
+                'name' => ['az' => 'Qapalı Stadion', 'en' => 'Indoor Stadium'],
+                'description' => [
+                    'az' => 'Tam qapalı stadion',
+                    'en' => 'Completely indoor stadium',
+                ],
+                'status' => true,
+            ],
+            [
+                'name' => ['az' => 'Yarı Açıq', 'en' => 'Semi-Open Stadium'],
+                'description' => [
+                    'az' => 'Qismən qapalı stadion',
+                    'en' => 'Partially indoor stadium',
+                ],
+                'status' => true,
+            ],
         ];
 
         foreach ($types as $type) {

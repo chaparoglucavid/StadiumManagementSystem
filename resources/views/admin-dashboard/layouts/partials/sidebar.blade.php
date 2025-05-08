@@ -50,6 +50,7 @@
                 </a>
                 <ul class="collapse" id="settings">
                     <li><a href="index.html">Ümumi tənzimləmələr</a></li>
+                    <li><a href="{{ route('admin.languages.index') }}">Dillər</a></li>
                     <li><a href="{{ route('admin.features.index') }}">Meydança özəllikləri</a></li>
                     <li><a href="{{ route('admin.sport-types.index') }}">İdman növləri</a></li>
                     <li><a href="{{ route('admin.stadium-types.index') }}">Meydança növləri</a></li>

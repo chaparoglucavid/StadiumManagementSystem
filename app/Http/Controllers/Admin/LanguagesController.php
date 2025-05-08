@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Features;
+use App\Models\Languages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class FeaturesController extends Controller
+class LanguagesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $features = Features::all();
-        return view('admin-dashboard.settings.features.index', compact('features'));
+        $languages = Languages::all();
+        return view('admin-dashboard.settings.languages.index', compact('languages'));
     }
 
     /**
@@ -23,7 +23,7 @@ class FeaturesController extends Controller
      */
     public function create()
     {
-        return view('admin-dashboard.settings.features.create');
+        return view('admin-dashboard.settings.languages.create');
     }
 
     /**
@@ -36,7 +36,6 @@ class FeaturesController extends Controller
             DB::beginTransaction();
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
                 'status' => 'required|string',
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
@@ -48,16 +47,15 @@ class FeaturesController extends Controller
                 $icon->move($destinationPath, $iconName);
             }
 
-            $feature = Features::create([
+            $language = Languages::create([
                 'name' => $request->input('name'),
-                'description' => $request->input('description'),
                 'icon' => $iconName ?? NULL,
                 'status' => $request->input('status'),
             ]);
 
             DB::commit();
-            flash('Özəllik müvəffəqiyyətlə əlavə olundu.', 'success');
-            return redirect()->route('admin.features.index');
+            flash('Dil müvəffəqiyyətlə əlavə olundu.', 'success');
+            return redirect()->route('admin.languages.index');
         } catch (\Exception $exception) {
             DB::rollBack();
             flash("Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin", 'danger');
@@ -82,12 +80,12 @@ class FeaturesController extends Controller
         $result = checkIdsAvailable($id);
         if(!$result)
         {
-            flasher('Meydança özəlliyi tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'success');
+            flasher('Dil tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'success');
             return redirect()->back();
         }
         $decryptedUid = decrypt($id);
-        $feature = Features::find($decryptedUid);
-        return view('admin-dashboard.settings.features.edit', compact('feature'));
+        $language = Languages::find($decryptedUid);
+        return view('admin-dashboard.settings.languages.edit', compact('language'));
     }
 
     /**
@@ -100,7 +98,7 @@ class FeaturesController extends Controller
             $result = checkIdsAvailable($id);
             if(!$result)
             {
-                flasher('Meydança özəlliyi tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'success');
+                flasher('Dil tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'success');
                 return redirect()->back();
             }
             $decryptedUid = decrypt($id);
@@ -109,29 +107,27 @@ class FeaturesController extends Controller
 
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
                 'status' => 'required|string',
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
 
-            $feature = Features::findOrFail($decryptedUid);
+            $language = Languages::findOrFail($decryptedUid);
 
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon');
                 $iconName = time() . '-' . $icon->getClientOriginalName();
                 $destinationPath = public_path('dashboard/images/icons');
                 $icon->move($destinationPath, $iconName);
-                $feature->icon = $iconName;
+                $language->icon = $iconName;
             }
 
-            $feature->name = $request->name;
-            $feature->description = $request->description;
-            $feature->status = $request->status;
-            $feature->save();
+            $language->name = $request->name;
+            $language->status = $request->status;
+            $language->save();
 
             DB::commit();
 
-            flash('Özəllik müvəffəqiyyətlə yeniləndi.', 'success');
+            flash('Dil məlumatları müvəffəqiyyətlə yeniləndi.', 'success');
             return redirect()->route('admin.features.index');
         } catch (\Exception $exception) {
             DB::rollBack();

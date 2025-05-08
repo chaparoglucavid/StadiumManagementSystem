@@ -1,8 +1,10 @@
 <?php
+use App\Models\Translations;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use App\Models\User;
+function t(string $key): string
+{
+    return Translations::getValue($key);
+}
 
 function checkIdsAvailable($id): bool
 {

@@ -6,7 +6,8 @@ use App\Http\Controllers\Admin\{
     SportTypesController,
     PlaygroundSurfaceTypesController,
     StadiumTypesController,
-    VendorPackagesController
+    VendorPackagesController,
+    LanguagesController
 };
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:admin'])->group(function () {
@@ -14,6 +15,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:adm
 
     Route::post('change-language]', [DashboardController::class, 'change_language'])->name('change-language');
 
+    Route::resource('languages', LanguagesController::class);
     Route::resource('features', FeaturesController::class);
     Route::resource('sport-types', SportTypesController::class);
     Route::resource('stadium-types', StadiumTypesController::class);

@@ -14,26 +14,20 @@
                             <a aria-expanded="false" class="d-block head-icon ps-0" data-bs-toggle="dropdown" href="#">
                                 <div class="lang-flag lang-en ">
                                   <span class="flag rounded-circle overflow-hidden">
-                                    <i class="flag-icon flag-icon-usa flag-icon-squared b-r-10 f-s-22"></i>
+                                    <img src="{{ asset('dashboard/images/logo/'.app()->getLocale().'.png') }}" height="25">
                                   </span>
                                 </div>
                             </a>
                             <ul class="dropdown-menu language-dropdown header-card border-0" style="">
-                                <li class="lang lang-en selected dropdown-item p-2 language_href_js" data-lang="en" data-bs-placement="top"
-                                    data-bs-toggle="tooltip" title="US">
+                                @foreach($languages as $language)
+                                    <li class="lang lang-en selected dropdown-item p-2 language_href_js" data-lang="{{ $language->shortened }}" data-bs-placement="top"
+                                        data-bs-toggle="tooltip" title="US">
                                       <span class="d-flex align-items-center">
-                                        <i class="flag-icon flag-icon-usa flag-icon-squared b-r-10 f-s-22"></i>
-                                        <span class="ps-2">English</span>
+                                        <img src="{{ asset('dashboard/images/logo/'.$language->shortened.'.png') }}" height="25">
+                                        <span class="ps-2">{{ $language->name }}</span>
                                       </span>
-                                </li>
-
-                                <li class="lang lang-en selected dropdown-item p-2 language_href_js" data-lang="az" data-bs-placement="top"
-                                    data-bs-toggle="tooltip" title="US">
-                                      <span class="d-flex align-items-center">
-                                        <i class="flag-icon flag-icon-usa flag-icon-squared b-r-10 f-s-22"></i>
-                                        <span class="ps-2">Azərbaycan dili</span>
-                                      </span>
-                                </li>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
 

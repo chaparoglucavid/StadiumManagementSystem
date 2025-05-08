@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('languages', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique();
-            $table->string('name');
+            $table->json('name');
+            $table->json('shortened');
             $table->string('icon');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->softDeletes();

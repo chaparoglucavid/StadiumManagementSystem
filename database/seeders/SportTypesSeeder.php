@@ -14,12 +14,30 @@ class SportTypesSeeder extends Seeder
     public function run(): void
     {
         $types = [
-            ['name' => 'Futbol', 'description' => 'Futbol'],
-            ['name' => 'Basketbol', 'description' => 'Basketbol'],
-            ['name' => 'Voleybol', 'description' => 'Voleybol'],
-            ['name' => 'Tennis', 'description' => 'Tennis'],
-            ['name' => 'Həndbol', 'description' => 'Həndbol'],
-            ['name' => 'Badminton', 'description' => 'Badminton'],
+            [
+                'name' => ['az' => 'Futbol', 'en' => 'Football'],
+                'description' => ['az' => 'Futbol', 'en' => 'Football'],
+            ],
+            [
+                'name' => ['az' => 'Basketbol', 'en' => 'Basketball'],
+                'description' => ['az' => 'Basketbol', 'en' => 'Basketball'],
+            ],
+            [
+                'name' => ['az' => 'Voleybol', 'en' => 'Volleyball'],
+                'description' => ['az' => 'Voleybol', 'en' => 'Volleyball'],
+            ],
+            [
+                'name' => ['az' => 'Tennis', 'en' => 'Tennis'],
+                'description' => ['az' => 'Tennis', 'en' => 'Tennis'],
+            ],
+            [
+                'name' => ['az' => 'Həndbol', 'en' => 'Handball'],
+                'description' => ['az' => 'Həndbol', 'en' => 'Handball'],
+            ],
+            [
+                'name' => ['az' => 'Badminton', 'en' => 'Badminton'],
+                'description' => ['az' => 'Badminton', 'en' => 'Badminton'],
+            ],
         ];
 
         foreach ($types as $type) {
