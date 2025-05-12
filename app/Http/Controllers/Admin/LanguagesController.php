@@ -35,7 +35,8 @@ class LanguagesController extends Controller
         try {
             DB::beginTransaction();
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
+                'name' => 'required|array',
+                'shortened' => 'required|array',
                 'status' => 'required|string',
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
@@ -43,12 +44,13 @@ class LanguagesController extends Controller
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon');
                 $iconName = time() . '-' . $icon->getClientOriginalName();
-                $destinationPath = public_path('dashboard/images/icons');
+                $destinationPath = public_path('dashboard/images/logo');
                 $icon->move($destinationPath, $iconName);
             }
 
             $language = Languages::create([
                 'name' => $request->input('name'),
+                'shortened' => $request->input('shortened'),
                 'icon' => $iconName ?? NULL,
                 'status' => $request->input('status'),
             ]);
@@ -106,7 +108,8 @@ class LanguagesController extends Controller
             DB::beginTransaction();
 
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
+                'name' => 'required|array',
+                'shortened' => 'required|array',
                 'status' => 'required|string',
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
@@ -116,19 +119,20 @@ class LanguagesController extends Controller
             if ($request->hasFile('icon')) {
                 $icon = $request->file('icon');
                 $iconName = time() . '-' . $icon->getClientOriginalName();
-                $destinationPath = public_path('dashboard/images/icons');
+                $destinationPath = public_path('dashboard/images/logo');
                 $icon->move($destinationPath, $iconName);
                 $language->icon = $iconName;
             }
 
-            $language->name = $request->name;
-            $language->status = $request->status;
+            $language->name = $request->input('name');
+            $language->shortened = $request->input('shortened');
+            $language->status = $request->input('status');
             $language->save();
 
             DB::commit();
 
             flash('Dil məlumatları müvəffəqiyyətlə yeniləndi.', 'success');
-            return redirect()->route('admin.features.index');
+            return redirect()->route('admin.languages.index');
         } catch (\Exception $exception) {
             DB::rollBack();
             flash("Xəta baş verdi. Zəhmət olmasa yenidən cəhd edin", 'danger');

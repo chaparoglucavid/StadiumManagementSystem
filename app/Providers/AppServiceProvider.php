@@ -21,9 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $languages = Languages::IsActive()->get();
+        $system_languages = Languages::IsActive()->get();
         \Illuminate\Support\Facades\View::share([
-            'languages' => $languages
+            'system_languages' => $system_languages
         ]);
     }
 }

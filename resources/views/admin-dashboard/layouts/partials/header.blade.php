@@ -9,6 +9,7 @@
 
             <div class="col-6 col-sm-8 d-flex align-items-center justify-content-end header-right p-0">
                 <ul class="d-flex align-items-center">
+                    <li>{{ app()->getLocale() }}</li>
                     <li class="header-language">
                         <div class="flex-shrink-0 dropdown" id="lang_selector">
                             <a aria-expanded="false" class="d-block head-icon ps-0" data-bs-toggle="dropdown" href="#">
@@ -19,12 +20,12 @@
                                 </div>
                             </a>
                             <ul class="dropdown-menu language-dropdown header-card border-0" style="">
-                                @foreach($languages as $language)
+                                @foreach($system_languages as $language)
                                     <li class="lang lang-en selected dropdown-item p-2 language_href_js" data-lang="{{ $language->shortened }}" data-bs-placement="top"
                                         data-bs-toggle="tooltip" title="US">
                                       <span class="d-flex align-items-center">
-                                        <img src="{{ asset('dashboard/images/logo/'.$language->shortened.'.png') }}" height="25">
-                                        <span class="ps-2">{{ $language->name }}</span>
+                                        <img src="{{ asset('dashboard/images/logo/'.app()->getLocale().'.png') }}" height="25">
+                                        <span class="ps-2">{{ $language->getTranslation('name', app()->getLocale()) }}</span>
                                       </span>
                                     </li>
                                 @endforeach
