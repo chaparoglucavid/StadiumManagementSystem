@@ -95,7 +95,7 @@
                                     <span>
                                         <i class="ti ti-check"></i>
                                     </span>
-                                    Daxil et
+                                    Yadda saxla
                                 </button>
                             </div>
                         </form>

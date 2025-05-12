@@ -20,8 +20,8 @@ class LanguagesSeeder extends Seeder
                     'en' => 'Azerbaijani',
                 ],
                 'shortened' => [
-                    'az' => 'AZ',
-                    'en' => 'AZ',
+                    'az' => 'az',
+                    'en' => 'az',
                 ],
                 'icon' => 'az.png',
                 'status' => 1
@@ -32,8 +32,8 @@ class LanguagesSeeder extends Seeder
                     'en' => 'English',
                 ],
                 'shortened' => [
-                    'az' => 'EN',
-                    'en' => 'EN',
+                    'az' => 'en',
+                    'en' => 'en',
                 ],
                 'icon' => 'en.png',
                 'status' => 1

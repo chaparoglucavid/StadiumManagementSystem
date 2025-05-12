@@ -56,8 +56,8 @@ class VendorPackagesController extends Controller
         try {
             DB::beginTransaction();
             $validated = $request->validate([
-                'package_name' => 'required|string|max:255',
-                'package_description' => 'nullable|string',
+                'package_name' => 'required|array',
+                'package_description' => 'nullable|array',
                 'amount' => 'required|numeric|min:0',
                 'commission' => 'required|numeric|min:0',
                 'duration' => 'required|numeric|min:0',
@@ -74,13 +74,13 @@ class VendorPackagesController extends Controller
             }
 
             $package = VendorPackages::create([
-                'package_name' => $request->package_name,
-                'package_description' => $request->package_description,
-                'amount' => $request->amount,
-                'commission' => $request->commission,
-                'duration' => $request->duration,
+                'package_name' => $request->input('package_name'),
+                'package_description' => $request->input('package_description'),
+                'amount' => $request->input('amount'),
+                'commission' => $request->input('commission'),
+                'duration' => $request->input('duration'),
                 'logo' => $validated['logo'] ?? NULL,
-                'status' => $request->status,
+                'status' => $request->input('status'),
             ]);
 
             DB::commit();
@@ -137,8 +137,8 @@ class VendorPackagesController extends Controller
 
             DB::beginTransaction();
             $validated = $request->validate([
-                'package_name' => 'required|string|max:255',
-                'package_description' => 'nullable|string',
+                'package_name' => 'required|array',
+                'package_description' => 'nullable|array',
                 'amount' => 'required|numeric|min:0',
                 'commission' => 'required|numeric|min:0',
                 'duration' => 'required|numeric|min:0',
@@ -161,13 +161,13 @@ class VendorPackagesController extends Controller
             }
 
             $package->update([
-                'package_name' => $request->package_name,
-                'package_description' => $request->package_description,
-                'amount' => $request->amount,
-                'commission' => $request->commission,
-                'duration' => $request->duration,
+                'package_name' => $request->input('package_name'),
+                'package_description' => $request->input('package_description'),
+                'amount' => $request->input('amount'),
+                'commission' => $request->input('commission'),
+                'duration' => $request->input('duration'),
                 'logo' => $validated['logo'] ?? $package->logo,
-                'status' => $request->status,
+                'status' => $request->input('status'),
             ]);
 
             DB::commit();

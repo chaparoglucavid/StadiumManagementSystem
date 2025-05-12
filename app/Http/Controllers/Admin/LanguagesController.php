@@ -71,7 +71,22 @@ class LanguagesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $result = checkIdsAvailable($id);
+        if(!$result)
+        {
+            flash('Məlumat tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'error');
+            return redirect()->back();
+        }
+
+        $decryptedUid = decrypt($id);
+        $langWithTranslations = Languages::with('translations')->find($decryptedUid);
+        if(!$langWithTranslations)
+        {
+            flash('Məlumat tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'error');
+            return redirect()->back();
+        } 
+
+        return view('admin-dashboard.settings.languages.show', compact('langWithTranslations'));
     }
 
     /**

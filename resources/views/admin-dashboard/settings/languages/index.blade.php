@@ -54,8 +54,8 @@
                                     </td>
                                     <td>
                                         <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2"
-                                           href="{{ route('admin.languages.edit', encrypt($language->uid)) }}"
-                                           role="button" target="_blank"> <i class="ti ti-eye"></i></a>
+                                           href="{{ route('admin.languages.show', encrypt($language->uid)) }}"
+                                           role="button" target="_blank"> <i class="ti ti-file"></i></a>
                                         <a href="{{ route('admin.languages.edit', encrypt($language->uid)) }}">
                                             <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2"
                                                     data-bs-target="#staticBackdrop" data-bs-toggle="modal"

@@ -32,8 +32,8 @@ class StadiumTypesController extends Controller
         try {
             DB::beginTransaction();
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
+                'name' => 'required|array',
+                'description' => 'nullable|array',
                 'status' => 'required|string',
             ]);
 
@@ -96,15 +96,15 @@ class StadiumTypesController extends Controller
             DB::beginTransaction();
 
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
+                'name' => 'required|array',
+                'description' => 'nullable|array',
                 'status' => 'required|string',
             ]);
 
             $type = StadiumTypes::findOrFail($decryptedUid);
-            $type->name = $request->name;
-            $type->description = $request->description;
-            $type->status = $request->status;
+            $type->name = $request->input('name');
+            $type->description = $request->input('description');
+            $type->status = $request->input('status');
             $type->save();
 
             DB::commit();

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('languages_uid');
             $table->string('key')->unique();
             $table->string('value');
+            $table->softDeletes();
             $table->timestamps();
 
             $table->index('languages_uid');

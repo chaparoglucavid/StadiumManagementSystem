@@ -38,8 +38,8 @@ class PlaygroundSurfaceTypesController extends Controller
             DB::beginTransaction();
             $validated = $request->validate([
                 'sport_types_uid' => 'required|string|max:255',
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
+                'name' => 'required|array',
+                'description' => 'nullable|array',
                 'status' => 'required|string',
             ]);
 
@@ -105,17 +105,17 @@ class PlaygroundSurfaceTypesController extends Controller
 
             $validated = $request->validate([
                 'sport_types_uid' => 'required|string|max:255',
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
+                'name' => 'required|array',
+                'description' => 'nullable|array',
                 'status' => 'required|string',
             ]);
 
             $surfaceType = PlaygroundSurfaceTypes::findOrFail($decryptedUid);
 
-            $surfaceType->sport_types_uid = $request->sport_types_uid;
-            $surfaceType->name = $request->name;
-            $surfaceType->description = $request->description;
-            $surfaceType->status = $request->status;
+            $surfaceType->sport_types_uid = $request->input('sport_types_uid');
+            $surfaceType->name = $request->input('name');
+            $surfaceType->description = $request->input('description');
+            $surfaceType->status = $request->input('status');
             $surfaceType->save();
 
             DB::commit();

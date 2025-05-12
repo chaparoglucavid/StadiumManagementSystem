@@ -35,8 +35,8 @@ class FeaturesController extends Controller
         try {
             DB::beginTransaction();
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
+                'name' => 'required|array',
+                'description' => 'nullable|array',
                 'status' => 'required|string',
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
@@ -108,8 +108,8 @@ class FeaturesController extends Controller
             DB::beginTransaction();
 
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'description' => 'nullable|string',
+                'name' => 'required|array',
+                'description' => 'nullable',
                 'status' => 'required|string',
                 'icon' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
             ]);
@@ -124,9 +124,9 @@ class FeaturesController extends Controller
                 $feature->icon = $iconName;
             }
 
-            $feature->name = $request->name;
-            $feature->description = $request->description;
-            $feature->status = $request->status;
+            $feature->name = $request->input('name');
+            $feature->description = $request->input('description');
+            $feature->status = $request->input('status');
             $feature->save();
 
             DB::commit();
