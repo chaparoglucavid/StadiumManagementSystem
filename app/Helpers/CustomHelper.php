@@ -1,7 +1,7 @@
 <?php
 use App\Models\Translations;
 
-function t(string $key): string
+function t(string $key, string $locale = null): string
 {
     return Translations::getValue($key);
 }

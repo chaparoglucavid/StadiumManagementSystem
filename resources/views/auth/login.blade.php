@@ -64,8 +64,8 @@
                                 <form class="app-form rounded-control" method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="mb-3 text-center">
-                                        <h3 class="text-primary-dark">Stadium Management System</h3>
-                                        <p class="f-s-12 text-secondary">Sistemin təhlükəsizliyi üçün şifrənizi gizli saxlayın</p>
+                                        <h3 class="text-primary-dark">{{ t('stadium_management_system') }}</h3>
+                                        <p class="f-s-12 text-secondary">{{ t('keep_your_password_secret_for_system_security') }}</p>
                                     </div>
                                     <div class="mb-3">
                                         <label class="form-label">Email ünvanı</label>

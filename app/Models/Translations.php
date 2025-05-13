@@ -38,14 +38,18 @@ class Translations extends Model
     public static function getValue(string $key, string $locale = null): string
     {
         $locale = $locale ?? app()->getLocale();
+        $languageUid = Cache::rememberForever("language_uid.{$locale}", function () use ($locale) {
+        return Languages::where("shortened->$locale", $locale)->value('uid');
+        });
+
+        if (!$languageUid) return $key;
 
         $cacheKey = "translation.{$key}.{$locale}";
 
-        return Cache::rememberForever($cacheKey, function () use ($key, $locale) {
-            return self::join('languages', 'translations.languages_uid', '=', 'languages.uid')
-                ->where('translations.key', $key)
-                ->where('languages.code', $locale)
-                ->value('translations.value') ?? $key;
+        return Cache::rememberForever($cacheKey, function () use ($key, $languageUid) {
+            return self::where('key', $key)
+                ->where('languages_uid', $languageUid)
+                ->value('value') ?? $key;
         });
     }
 

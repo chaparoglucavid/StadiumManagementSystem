@@ -15,6 +15,36 @@ class TranslationsSeeder extends Seeder
      */
     public function run(): void
     {
+        $translations = [
+            ['key' => 'stadium management system', 'value' => 'Stadion İdarə sistemi', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'admin dashboard', 'value' => 'İdarə paneli', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'homepage', 'value' => 'Əsas səhifə', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'users', 'value' => 'İstifadəçilər', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'curtomers', 'value' => 'Müştərilər', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'vendors', 'value' => 'Vendorlar', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'stadiums', 'value' => 'Meydançalar', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'reservations', 'value' => 'Rezervasiyalar', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'payment_history', 'value' => 'Ödəniş tarixçəsi', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'settings', 'value' => 'Tənzimləmələr', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'general settings', 'value' => 'Ümumi tənzimləmələr', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'cities', 'value' => 'Şəhərlər', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'regions', 'value' => 'Rayonlar', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'languages', 'value' => 'Dillər', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'features', 'value' => 'Meydança özəllikləri', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'sport types', 'value' => 'İdman növləri', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'stadium types', 'value' => 'Meydança növləri', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'playground surface types', 'value' => 'Meydança örtük növləri', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'vendor packages', 'value' => 'Vendor paketləri', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'about system', 'value' => 'Sistem haqqında', 'languages_uid' => Languages::first()->uid],
+        ];
 
+        foreach ($translations as $item) {
+            Translations::create([
+                'uid' => \Illuminate\Support\Str::uuid()->toString(),
+                'languages_uid' => $item['languages_uid'],
+                'key' => $item['key'],
+                'value' => $item['value'],
+            ]);
+        }
     }
 }
