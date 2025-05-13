@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
-use Str;
 
 class User extends Authenticatable
 {
@@ -41,13 +41,13 @@ class User extends Authenticatable
         'password',
     ];
 
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
-        static::creating(function ($model) {
+        static::creating(static function ($model) {
             if (empty($model->uid)) {
-                $model->uid = \Illuminate\Support\Str::uuid()->toString();
+                $model->uid = Str::uuid()->toString();
             }
         });
     }
@@ -64,7 +64,11 @@ class User extends Authenticatable
         return $query->where('activityStatus', 'banned');
     }
 
-    public function stadiums()
+    public function scopeIsCostumer($query){
+        return $query->where('type', 'user');
+    }
+
+    public function stadiums(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Stadiums::class, 'users_uid', 'uid');
     }

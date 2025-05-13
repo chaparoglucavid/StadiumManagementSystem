@@ -24,7 +24,7 @@
                     İstifadəçilər
                 </a>
                 <ul class="collapse" id="users">
-                    <li><a href="index.html">İstifadəçilər</a></li>
+                    <li><a href="{{ route('admin.users.index') }}">İstifadəçilər</a></li>
                     <li><a href="ecommerce_dashboard.html">Vendorlar</a></li>
                 </ul>
             </li>
@@ -50,6 +50,8 @@
                 </a>
                 <ul class="collapse" id="settings">
                     <li><a href="index.html">Ümumi tənzimləmələr</a></li>
+                    <li><a href="{{ route('admin.cities.index') }}">Şəhərlər</a></li>
+                    <li><a href="{{ route('admin.regions.index') }}">Rayonlar</a></li>
                     <li><a href="{{ route('admin.languages.index') }}">Dillər</a></li>
                     <li><a href="{{ route('admin.features.index') }}">Meydança özəllikləri</a></li>
                     <li><a href="{{ route('admin.sport-types.index') }}">İdman növləri</a></li>

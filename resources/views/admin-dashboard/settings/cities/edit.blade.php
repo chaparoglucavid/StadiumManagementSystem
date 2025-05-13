@@ -6,14 +6,14 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            {{ $surfaceType->getTranslation('name', app()->getLocale()) }} məlumatları
+                            {{ $city->getTranslation('city_name', app()->getLocale()) }} məlumatları
                         </h4>
-                        <a href="{{ route('admin.playground-surface-types.index') }}">
+                        <a href="{{ route('admin.cities.index') }}">
                             <button class="btn btn-sm btn-outline-danger">
                                 <span>
                                     <i class="ti ti-arrow-autofit-left"></i>
                                 </span>
-                                Meydança örtük tipləri
+                                Şəhərlər
                             </button>
                         </a>
                     </div>
@@ -35,7 +35,7 @@
                             @endforeach
                         </ul>
 
-                        <form action="{{ route('admin.playground-surface-types.update', encrypt($surfaceType->uid)) }}" method="POST">
+                        <form action="{{ route('admin.cities.update', encrypt($city->uid)) }}" method="POST">
                             @csrf
                             @method('PUT')
                             <!-- Tab Content -->
@@ -49,33 +49,14 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <div class="floating-form mb-3">
-                                                    <input type="text" value="{{ $surfaceType->getTranslation('name', $lang_item->shortened) }}" name="name[{{ $lang_item->shortened }}]"
+                                                    <input type="text" value="{{ $city->getTranslation('city_name', $lang_item->shortened) }}" name="city_name[{{ $lang_item->shortened }}]"
                                                            class="form-control" placeholder="none">
                                                     <label class="form-label">Ad ({{ $lang_item->name }})</label>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div class="floating-form mb-3">
-                                                    <input type="text" value="{{ $surfaceType->getTranslation('description', $lang_item->shortened) }}" name="description[{{ $lang_item->shortened }}]"
-                                                           class="form-control" placeholder="none">
-                                                    <label class="form-label">Qısa açıqlama ({{ $lang_item->name }})</label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
-                            </div>
-
-                            <div class="col-12">
-                                <div class="floating-form mb-3">
-                                    <select class="form-select" id="sport_types" name="sport_types_uid">
-                                        <option selected disabled>İdman növü seçin</option>
-                                        @foreach ($sportTypes as $type)
-                                            <option value="{{ $type->uid }}" {{ $surfaceType->sport_types_uid === $type->uid ? 'selected' : '' }}>{{ $type->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
                             </div>
 
                             <!-- Global fields (status, icon, etc.) -->
@@ -84,8 +65,8 @@
                                     <div class="floating-form mb-3">
                                         <select class="form-select" id="status" name="status">
                                             <option selected disabled>Status seçin</option>
-                                            <option value="active" {{ $surfaceType->status === "active" ? 'selected' : '' }}>Aktiv</option>
-                                            <option value="inactive" {{ $surfaceType->status === "inactive" ? 'selected' : '' }}>Deaktiv</option>
+                                            <option value="active" {{ $city->status === "active" ? 'selected' : '' }}>Aktiv</option>
+                                            <option value="inactive" {{ $city->status === "inactive" ? 'selected' : '' }}>Deaktiv</option>
                                         </select>
                                     </div>
                                 </div>

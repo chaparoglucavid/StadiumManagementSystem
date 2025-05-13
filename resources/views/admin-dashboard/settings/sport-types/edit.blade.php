@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            {{ $type->name }} məlumatları
+                            {{ $type->getTranslation('name', app()->getLocale()) }} məlumatları
                         </h4>
                         <a href="{{ route('admin.sport-types.index') }}">
                             <button class="btn btn-sm btn-outline-danger">

@@ -6,7 +6,7 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            {{ $feature->name }} məlumatları
+                            {{ $feature->getTranslation('name', app()->getLocale()) }} məlumatları
                         </h4>
                         <a href="{{ route('admin.features.index') }}">
                             <button class="btn btn-sm btn-outline-danger">
