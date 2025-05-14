@@ -6,7 +6,7 @@
                 <div class="card-header mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            Vendor paketləri
+                            {{ t('vendor packages') }}
                         </h4>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                                                 <p>
                                                     Status:
                                                     <span
-                                                        class="badge text-light-{{ $package->status === 'active' ? 'success' : 'danger' }}">{{ $package->status === 'active' ? 'Aktiv' : 'Deaktiv' }}</span>
+                                                        class="badge text-light-{{ $package->status === 'active' ? 'success' : 'danger' }}">{{ $package->status === 'active' ? t('active') : t('inactive') }}</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -59,13 +59,13 @@
                                                 <span>
                                                     <i class="ti ti-pencil"></i>
                                                 </span>
-                                                Düzəliş et
+                                                {{ t('edit') }}
                                             </button>
                                             <button class="btn btn-sm btn-outline-danger w-100">
                                                 <span>
                                                     <i class="ti ti-trash"></i>
                                                 </span>
-                                                Sil
+                                                {{ t('delete') }}
                                             </button>
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@
                                 <div class="card-body d-flex justify-content-center align-items-center"
                                      style="height: 200px;">
                                     <span style="font-size: 48px;">+</span>
-                                    <strong class="ms-2">Yeni paket əlavə et</strong>
+                                    <strong class="ms-2">{{ t('add new vendor package') }}</strong>
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Yeni vendor paketi</h5>
+                    <h5 class="modal-title">{{ t('new vendor package') }}</h5>
                     <button aria-label="Close" class="btn-close m-0 fs-5" data-bs-dismiss="modal"
                             type="button"></button>
                 </div>
@@ -133,7 +133,7 @@
                                                                name="package_name[{{ $lang_item->shortened }}]"
                                                                class="form-control"
                                                                placeholder="none">
-                                                        <label class="form-label">Paket adını daxil edin
+                                                        <label class="form-label">{{ t('package name') }}
                                                             ({{ $lang_item->name }})</label>
                                                     </div>
                                                 </div>
@@ -144,7 +144,7 @@
                                                                name="package_description[{{ $lang_item->shortened }}]"
                                                                class="form-control"
                                                                placeholder="none">
-                                                        <label class="form-label">Paket haqqında qısa məlumat
+                                                        <label class="form-label">{{ t('package short description') }}
                                                             ({{ $lang_item->name }})</label>
                                                     </div>
                                                 </div>
@@ -160,7 +160,7 @@
                                                    placeholder="Qiyməti daxil edin" type="text" name="amount">
                                             <span class="input-group-text bg-light-secondary b-1-secondary"><i
                                                     class="ti ti-report-money"></i></span>
-                                            <label class="form-label">Qiymət</label>
+                                            <label class="form-label">{{ t('amount') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                                    name="commission">
                                             <span class="input-group-text bg-light-secondary b-1-secondary"><i
                                                     class="ti ti-percentage"></i></span>
-                                            <label class="form-label">Komissiya</label>
+                                            <label class="form-label">{{ t('commission') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
                                                    name="duration">
                                             <span class="input-group-text bg-light-secondary b-1-secondary"><i
                                                     class="ti ti-calendar"></i></span>
-                                            <label class="form-label">Aktivlik müddəti</label>
+                                            <label class="form-label">{{ t('duration') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -200,9 +200,9 @@
                                 <div class="col-12">
                                     <div class="floating-form mb-3">
                                         <select class="form-select" id="status" name="status">
-                                            <option selected disabled>Status seçin</option>
-                                            <option value="active">Aktiv</option>
-                                            <option value="inactive">Deaktiv</option>
+                                            <option selected disabled>{{ t('select status') }}</option>
+                                            <option value="active">{{ t('active') }}</option>
+                                            <option value="inactive">{{ t('inactive') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -211,9 +211,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-light-primary" type="submit">Daxil et</button>
+                        <button class="btn btn-light-primary" type="submit">{{ t('create') }}</button>
                         <button class="btn btn-light-secondary" data-bs-dismiss="modal"
-                                type="button">Bağla
+                                type="button">{{ t('close') }}
                         </button>
                     </div>
                 </form>
@@ -267,7 +267,7 @@
                                                                name="package_name[{{ $lang_item->shortened }}]"
                                                                class="form-control"
                                                                placeholder="none">
-                                                        <label class="form-label">Paket adını daxil edin
+                                                        <label class="form-label">{{ t('package name') }}
                                                             ({{ $lang_item->name }})</label>
                                                     </div>
                                                 </div>
@@ -278,7 +278,7 @@
                                                                name="package_description[{{ $lang_item->shortened }}]"
                                                                class="form-control"
                                                                placeholder="none">
-                                                        <label class="form-label">Paket haqqında qısa məlumat
+                                                        <label class="form-label">{{ t('package short description') }}
                                                             ({{ $lang_item->name }})</label>
                                                     </div>
                                                 </div>
@@ -294,7 +294,7 @@
                                                    placeholder="Qiyməti daxil edin" type="text" name="amount">
                                             <span class="input-group-text bg-light-secondary b-1-secondary"><i
                                                     class="ti ti-report-money"></i></span>
-                                            <label class="form-label">Qiymət</label>
+                                            <label class="form-label">{{ t('amount') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -307,7 +307,7 @@
                                                    name="commission">
                                             <span class="input-group-text bg-light-secondary b-1-secondary"><i
                                                     class="ti ti-percentage"></i></span>
-                                            <label class="form-label">Komissiya</label>
+                                            <label class="form-label">{{ t('commission') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -320,7 +320,7 @@
                                                    name="duration">
                                             <span class="input-group-text bg-light-secondary b-1-secondary"><i
                                                     class="ti ti-calendar"></i></span>
-                                            <label class="form-label">Aktivlik müddəti</label>
+                                            <label class="form-label">{{ t('duration') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -335,9 +335,9 @@
                                 <div class="col-12">
                                     <div class="floating-form mb-3">
                                         <select class="form-select" id="editStatus" name="status">
-                                            <option selected disabled>Status seçin</option>
-                                            <option value="active">Aktiv</option>
-                                            <option value="inactive">Deaktiv</option>
+                                            <option selected disabled>{{ t('select status') }}</option>
+                                            <option value="active">{{ t('active') }}</option>
+                                            <option value="inactive">{{ t('deactive') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -345,9 +345,9 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-light-primary" type="submit">Yadda saxla</button>
+                        <button class="btn btn-light-primary" type="submit">{{ t('update') }}</button>
                         <button class="btn btn-light-secondary" data-bs-dismiss="modal"
-                                type="button">Bağla
+                                type="button">{{ t('close') }}
                         </button>
                     </div>
                 </form>
@@ -373,7 +373,7 @@
                     success: function (data) {
                         const packageData = data.data;
                         $('#editPackageForm').attr('action', '/admin/vendor-packages/' + packageId);
-                        $('#editPackageModalTitle').text(packageData.package_name[current_lang]+" məlumatları");
+                        $('#editPackageModalTitle').text(packageData.package_name[current_lang]);
 
                         system_languages.forEach(lang => {
                             const langKey = lang.shortened[current_lang];

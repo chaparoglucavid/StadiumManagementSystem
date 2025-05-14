@@ -53,6 +53,7 @@ class Translations extends Model
         });
     }
 
+
     public function languages()
     {
         return $this->belongsTo(Languages::class, 'languages_uid', 'uid');
