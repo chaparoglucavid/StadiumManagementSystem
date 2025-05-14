@@ -6,14 +6,14 @@
                 <div class="card-header mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            Şəhərlər
+                            {{ t('cities') }}
                         </h4>
                         <a href="{{ route('admin.cities.create') }}">
                             <button class="btn btn-sm btn-outline-primary">
                                 <span>
                                     <i class="ti ti-plus"></i>
                                 </span>
-                                Yeni şəhər
+                                {{ t('add new city') }}
                             </button>
                         </a>
                     </div>
@@ -25,10 +25,10 @@
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th class="text-start" scope="col">Şəhər</th>
-                                <th scope="col">Tarix</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Əməliyyatlar</th>
+                                <th class="text-start" scope="col">{{ t('city') }}</th>
+                                <th scope="col">{{ t('date') }}</th>
+                                <th scope="col">{{ t('status') }}</th>
+                                <th scope="col">{{ t('operations') }}</th>
                             </tr>
                             </thead>
                             <tbody>

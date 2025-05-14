@@ -1,6 +1,6 @@
 <nav>
     <div class="app-logo">
-        <a class="logo d-inline-block" href="index.html">
+        <a class="logo d-inline-block" href="{{ route('admin.admin-dashboard') }}">
             <img alt="#" src="{{ asset('dashboard/images/logo/1.png') }}">
         </a>
 
@@ -11,7 +11,7 @@
     <div class="app-nav" id="app-simple-bar">
         <ul class="main-nav p-0 mt-2">
             <li class="menu-title">
-                <span>{{ t('admin_dashboard') }}</span>
+                <span>{{ t('admin dashboard') }}</span>
             </li>
             <li class="no-sub">
                 <a class="" href="{{ route('admin.admin-dashboard') }}">
@@ -25,7 +25,7 @@
                 </a>
                 <ul class="collapse" id="users">
                     <li><a href="{{ route('admin.users.index') }}">{{ t('customers') }}</a></li>
-                    <li><a href="ecommerce_dashboard.html">{{ t('vendors') }}</a></li>
+                    <li><a href="#">{{ t('vendors') }}</a></li>
                 </ul>
             </li>
             <li class="no-sub">
@@ -49,16 +49,16 @@
                     {{ t('settings') }}
                 </a>
                 <ul class="collapse" id="settings">
-                    <li><a href="index.html">{{ t('general_settings') }}</a></li>
+                    <li><a href="index.html">{{ t('general settings') }}</a></li>
                     <li><a href="{{ route('admin.cities.index') }}">{{ t('cities') }}</a></li>
                     <li><a href="{{ route('admin.regions.index') }}">{{ t('regions') }}</a></li>
                     <li><a href="{{ route('admin.languages.index') }}">{{ t('languages') }}</a></li>
                     <li><a href="{{ route('admin.features.index') }}">{{ t('features') }}</a></li>
-                    <li><a href="{{ route('admin.sport-types.index') }}">{{ t('sport_types') }}</a></li>
-                    <li><a href="{{ route('admin.stadium-types.index') }}">{{ t('stadium_types') }}</a></li>
-                    <li><a href="{{ route('admin.playground-surface-types.index') }}">{{ t('playground_surface_types') }}</a></li>
-                    <li><a href="{{ route('admin.vendor-packages.index') }}">{{ t('vendor_packages') }}</a></li>
-                    <li><a href="ecommerce_dashboard.html">{{ t('about_system') }}</a></li>
+                    <li><a href="{{ route('admin.sport-types.index') }}">{{ t('sport types') }}</a></li>
+                    <li><a href="{{ route('admin.stadium-types.index') }}">{{ t('stadium types') }}</a></li>
+                    <li><a href="{{ route('admin.playground-surface-types.index') }}">{{ t('playground surface types') }}</a></li>
+                    <li><a href="{{ route('admin.vendor-packages.index') }}">{{ t('vendor packages') }}</a></li>
+                    <li><a href="ecommerce_dashboard.html">{{ t('about system') }}</a></li>
                 </ul>
             </li>
         </ul>

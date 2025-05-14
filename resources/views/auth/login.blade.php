@@ -64,20 +64,20 @@
                                 <form class="app-form rounded-control" method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="mb-3 text-center">
-                                        <h3 class="text-primary-dark">{{ t('stadium_management_system') }}</h3>
-                                        <p class="f-s-12 text-secondary">{{ t('keep_your_password_secret_for_system_security') }}</p>
+                                        <h3 class="text-primary-dark">{{ t('stadium management system') }}</h3>
+                                        <p class="f-s-12 text-secondary">{{ t('keep your password secret for system security') }}</p>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Email ünvanı</label>
+                                        <label class="form-label">{{ t('email') }}</label>
                                         <input class="form-control" name="email" type="email">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="form-label">Şifrə</label>
+                                        <label class="form-label">{{ t('password') }}</label>
                                         <input class="form-control" name="password" type="password">
                                     </div>
                                     <div>
                                         <button class="btn btn-light-primary w-100"
-                                           type="submit">Sistemə daxil olun</button>
+                                           type="submit">{{ t('login') }}</button>
                                     </div>
                                 </form>
                             </div>

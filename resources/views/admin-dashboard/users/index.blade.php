@@ -6,14 +6,14 @@
                 <div class="card-header mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            İstifadəçilər
+                            {{ t('users') }}
                         </h4>
                         <a href="{{ route('admin.users.create') }}">
                             <button class="btn btn-sm btn-outline-primary">
                                 <span>
                                     <i class="ti ti-plus"></i>
                                 </span>
-                                Yeni istifadəçi
+                                {{ t('add new user') }}
                             </button>
                         </a>
                     </div>
@@ -25,12 +25,12 @@
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th class="text-start" scope="col">İstifadəçi</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Telefon nömrəsi</th>
-                                <th scope="col">Qeydiyyat tarixi</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Əməliyyatlar</th>
+                                <th class="text-start" scope="col">{{ t('users') }}</th>
+                                <th scope="col">{{ t('email') }}</th>
+                                <th scope="col">{{ t('phone') }}</th>
+                                <th scope="col">{{ t('registration date') }}</th>
+                                <th scope="col">{{ t('status') }}</th>
+                                <th scope="col">{{ t('operations') }}</th>
                             </tr>
                             </thead>
                             <tbody>
