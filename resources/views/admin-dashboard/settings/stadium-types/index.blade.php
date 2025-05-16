@@ -6,14 +6,14 @@
                 <div class="card-header mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            Meydança növləri
+                            {{ t('stadium types') }}
                         </h4>
                         <a href="{{ route('admin.stadium-types.create') }}">
                             <button class="btn btn-sm btn-outline-primary">
                                 <span>
                                     <i class="ti ti-plus"></i>
                                 </span>
-                                Yeni meydança növü
+                                {{ t('add new stadium type') }}
                             </button>
                         </a>
                     </div>
@@ -25,11 +25,11 @@
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th class="text-start" scope="col">Meydança növü</th>
-                                <th scope="col">Açıqlama</th>
-                                <th scope="col">Tarix</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Əməliyyatlar</th>
+                                <th class="text-start" scope="col">{{ t('stadium type') }}</th>
+                                <th scope="col">{{ t('description') }}</th>
+                                <th scope="col">{{ t('date') }}</th>
+                                <th scope="col">{{ t('status') }}</th>
+                                <th scope="col">{{ t('operations') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -45,7 +45,7 @@
                                     </td>
                                     <td>
                                         <span
-                                            class="badge text-light-{{ $type->status === "active" ? 'success' : 'danger' }}">{{ $type->status === "active" ? 'Aktiv' : 'Deaktiv' }}</span>
+                                            class="badge text-light-{{ $type->status === "active" ? 'success' : 'danger' }}">{{ $type->status === "active" ? t('active') : t('inactive') }}</span>
                                     </td>
                                     <td>
                                         <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2"

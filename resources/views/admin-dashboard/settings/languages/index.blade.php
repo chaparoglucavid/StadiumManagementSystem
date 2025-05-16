@@ -6,14 +6,14 @@
                 <div class="card-header mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            Dil məlumatları
+                            {{ t('languages') }}
                         </h4>
                         <a href="{{ route('admin.languages.create') }}">
                             <button class="btn btn-sm btn-outline-primary">
                                 <span>
                                     <i class="ti ti-plus"></i>
                                 </span>
-                                Yeni dil
+                                {{ t('add new language') }}
                             </button>
                         </a>
                     </div>
@@ -25,11 +25,11 @@
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th class="text-start" scope="col">Dil</th>
-                                <th scope="col">Icon</th>
-                                <th scope="col">Tarix</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Əməliyyatlar</th>
+                                <th class="text-start" scope="col">{{ t('language') }}</th>
+                                <th scope="col">{{ t('icon') }}</th>
+                                <th scope="col">{{ t('date') }}</th>
+                                <th scope="col">{{ t('status') }}</th>
+                                <th scope="col">{{ t('operation') }}</th>
                             </tr>
                             </thead>
                             <tbody>

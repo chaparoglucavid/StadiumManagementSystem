@@ -6,14 +6,14 @@
                 <div class="card-header mb-4">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            Meydança özəllikləri
+                            {{ t('features') }}
                         </h4>
                         <a href="{{ route('admin.features.create') }}">
                             <button class="btn btn-sm btn-outline-primary">
                                 <span>
                                     <i class="ti ti-plus"></i>
                                 </span>
-                                Yeni özəllik
+                                {{ t('add new feature') }}
                             </button>
                         </a>
                     </div>
@@ -25,12 +25,12 @@
                             <thead>
                             <tr>
                                 <th>№</th>
-                                <th class="text-start" scope="col">Özəllik adı</th>
-                                <th scope="col">Açıqlama</th>
-                                <th scope="col">Icon</th>
-                                <th scope="col">Tarix</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Əməliyyatlar</th>
+                                <th class="text-start" scope="col">{{ t('feature') }}</th>
+                                <th scope="col">{{ t('description') }}</th>
+                                <th scope="col">{{ t('icon') }}</th>
+                                <th scope="col">{{ t('date') }}</th>
+                                <th scope="col">{{ t('status') }}</th>
+                                <th scope="col">{{ t('operations') }}</th>
                             </tr>
                             </thead>
                             <tbody>

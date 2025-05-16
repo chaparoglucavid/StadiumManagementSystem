@@ -6,14 +6,14 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            Yeni meydança özəlliyi
+                            {{ t('add new feature') }}
                         </h4>
                         <a href="{{ route('admin.features.index') }}">
                             <button class="btn btn-sm btn-outline-danger">
                                 <span>
                                     <i class="ti ti-arrow-autofit-left"></i>
                                 </span>
-                                Meydança özəllikləri
+                                {{ t('features') }}
                             </button>
                         </a>
                     </div>
@@ -52,7 +52,7 @@
                                                 <div class="floating-form mb-3">
                                                     <input type="text" name="name[{{ $lang_item->shortened }}]"
                                                            class="form-control" placeholder="none">
-                                                    <label class="form-label">Ad ({{ $lang_item->name }})</label>
+                                                    <label class="form-label">{{ t('name') }} ({{ $lang_item->name }})</label>
                                                 </div>
                                             </div>
 
@@ -60,7 +60,7 @@
                                                 <div class="floating-form mb-3">
                                                     <input type="text" name="description[{{ $lang_item->shortened }}]"
                                                            class="form-control" placeholder="none">
-                                                    <label class="form-label">Qısa açıqlama ({{ $lang_item->name }})</label>
+                                                    <label class="form-label">{{ t('description') }} ({{ $lang_item->name }})</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,9 +73,9 @@
                                 <div class="col-6">
                                     <div class="floating-form mb-3">
                                         <select class="form-select" id="status" name="status">
-                                            <option selected disabled>Status seçin</option>
-                                            <option value="active">Aktiv</option>
-                                            <option value="inactive">Deaktiv</option>
+                                            <option selected disabled>{{ t('select status') }}</option>
+                                            <option value="active">{{ t('active') }}</option>
+                                            <option value="inactive">{{ t('inactive') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                     <span>
                                         <i class="ti ti-check"></i>
                                     </span>
-                                    Daxil et
+                                    {{ t('create') }}
                                 </button>
                             </div>
                         </form>

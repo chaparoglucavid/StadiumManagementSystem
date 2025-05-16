@@ -6,14 +6,14 @@
                 <div class="card-header">
                     <div class="d-flex justify-content-between align-items-center">
                         <h4>
-                            {{ $surfaceType->getTranslation('name', app()->getLocale()) }} məlumatları
+                            {{ $surfaceType->getTranslation('name', app()->getLocale()) }}
                         </h4>
                         <a href="{{ route('admin.playground-surface-types.index') }}">
                             <button class="btn btn-sm btn-outline-danger">
                                 <span>
                                     <i class="ti ti-arrow-autofit-left"></i>
                                 </span>
-                                Meydança örtük tipləri
+                                {{ t('playground surface type') }}
                             </button>
                         </a>
                     </div>
@@ -51,7 +51,7 @@
                                                 <div class="floating-form mb-3">
                                                     <input type="text" value="{{ $surfaceType->getTranslation('name', $lang_item->shortened) }}" name="name[{{ $lang_item->shortened }}]"
                                                            class="form-control" placeholder="none">
-                                                    <label class="form-label">Ad ({{ $lang_item->name }})</label>
+                                                    <label class="form-label">{{ t('name') }} ({{ $lang_item->name }})</label>
                                                 </div>
                                             </div>
 
@@ -59,7 +59,7 @@
                                                 <div class="floating-form mb-3">
                                                     <input type="text" value="{{ $surfaceType->getTranslation('description', $lang_item->shortened) }}" name="description[{{ $lang_item->shortened }}]"
                                                            class="form-control" placeholder="none">
-                                                    <label class="form-label">Qısa açıqlama ({{ $lang_item->name }})</label>
+                                                    <label class="form-label">{{ t('description') }} ({{ $lang_item->name }})</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@
                             <div class="col-12">
                                 <div class="floating-form mb-3">
                                     <select class="form-select" id="sport_types" name="sport_types_uid">
-                                        <option selected disabled>İdman növü seçin</option>
+                                        <option selected disabled>{{ t('select sport type') }}</option>
                                         @foreach ($sportTypes as $type)
                                             <option value="{{ $type->uid }}" {{ $surfaceType->sport_types_uid === $type->uid ? 'selected' : '' }}>{{ $type->name }}</option>
                                         @endforeach
@@ -83,9 +83,9 @@
                                 <div class="col-6">
                                     <div class="floating-form mb-3">
                                         <select class="form-select" id="status" name="status">
-                                            <option selected disabled>Status seçin</option>
-                                            <option value="active" {{ $surfaceType->status === "active" ? 'selected' : '' }}>Aktiv</option>
-                                            <option value="inactive" {{ $surfaceType->status === "inactive" ? 'selected' : '' }}>Deaktiv</option>
+                                            <option selected disabled>{{ t('select status') }}</option>
+                                            <option value="active" {{ $surfaceType->status === "active" ? 'selected' : '' }}>{{ t('active') }}</option>
+                                            <option value="inactive" {{ $surfaceType->status === "inactive" ? 'selected' : '' }}>{{ t('inactive') }}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -97,7 +97,7 @@
                                     <span>
                                         <i class="ti ti-check"></i>
                                     </span>
-                                    Yadda saxla
+                                    {{ t('update') }}
                                 </button>
                             </div>
                         </form>

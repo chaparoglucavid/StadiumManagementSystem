@@ -16,6 +16,7 @@ class TranslationsSeeder extends Seeder
     public function run(): void
     {
         $translations = [
+            ['key' => 'keep your password secret for system security', 'value' => 'Sistemin təhlükəsizliyi üçün şifrənizi gizli saxlayın', 'languages_uid' => Languages::first()->uid],
             ['key' => 'stadium management system', 'value' => 'Stadion İdarə sistemi', 'languages_uid' => Languages::first()->uid],
             ['key' => 'admin dashboard', 'value' => 'İdarə paneli', 'languages_uid' => Languages::first()->uid],
             ['key' => 'email', 'value' => 'Email ünvanı', 'languages_uid' => Languages::first()->uid],
@@ -39,10 +40,12 @@ class TranslationsSeeder extends Seeder
             ['key' => 'cities', 'value' => 'Şəhərlər', 'languages_uid' => Languages::first()->uid],
             ['key' => 'regions', 'value' => 'Rayonlar', 'languages_uid' => Languages::first()->uid],
             ['key' => 'languages', 'value' => 'Dillər', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'language', 'value' => 'Dil', 'languages_uid' => Languages::first()->uid],
             ['key' => 'features', 'value' => 'Meydança özəllikləri', 'languages_uid' => Languages::first()->uid],
             ['key' => 'sport types', 'value' => 'İdman növləri', 'languages_uid' => Languages::first()->uid],
             ['key' => 'sport type', 'value' => 'İdman növü', 'languages_uid' => Languages::first()->uid],
             ['key' => 'stadium types', 'value' => 'Meydança növləri', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'stadium type', 'value' => 'Meydança növü', 'languages_uid' => Languages::first()->uid],
             ['key' => 'playground surface types', 'value' => 'Meydança örtük növləri', 'languages_uid' => Languages::first()->uid],
             ['key' => 'playground surface type', 'value' => 'Meydança örtük növü', 'languages_uid' => Languages::first()->uid],
             ['key' => 'vendor packages', 'value' => 'Vendor paketləri', 'languages_uid' => Languages::first()->uid],
@@ -67,6 +70,13 @@ class TranslationsSeeder extends Seeder
             ['key' => 'duration', 'value' => 'Aktivlik müddəti', 'languages_uid' => Languages::first()->uid],
             ['key' => 'close', 'value' => 'Bağla', 'languages_uid' => Languages::first()->uid],
             ['key' => 'add new playground surface type', 'value' => 'Yeni meydança örtük növü', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'select sport type', 'value' => 'İdman növünü seçin', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'add new stadium type', 'value' => 'Yeni meydança növü', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'add new sport type', 'value' => 'Yeni idman növü', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'add new feature', 'value' => 'Yeni özəllik', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'icon', 'value' => 'İkon', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'add new language', 'value' => 'Yeni dil əlavə et', 'languages_uid' => Languages::first()->uid],
+            ['key' => 'shortened', 'value' => 'Qısaldılmış ad', 'languages_uid' => Languages::first()->uid],
         ];
 
         foreach ($translations as $item) {
