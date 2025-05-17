@@ -40,7 +40,7 @@
             </li>
             <li class="no-sub">
                 <a class="" href="{{ route('admin.admin-dashboard') }}">
-                    <i class="iconoir-money-square"></i> {{ t('payment_history') }}
+                    <i class="iconoir-money-square"></i> {{ t('payment history') }}
                 </a>
             </li>
             <li>
@@ -49,7 +49,7 @@
                     {{ t('settings') }}
                 </a>
                 <ul class="collapse" id="settings">
-                    <li><a href="index.html">{{ t('general settings') }}</a></li>
+                    <li><a href="{{ route('admin.general-settings.index') }}">{{ t('general settings') }}</a></li>
                     <li><a href="{{ route('admin.cities.index') }}">{{ t('cities') }}</a></li>
                     <li><a href="{{ route('admin.regions.index') }}">{{ t('regions') }}</a></li>
                     <li><a href="{{ route('admin.languages.index') }}">{{ t('languages') }}</a></li>

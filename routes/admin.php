@@ -10,7 +10,8 @@ use App\Http\Controllers\Admin\{
     LanguagesController,
     CitiesController,
     RegionsController,
-    UsersController
+    UsersController,
+    GeneralSettingsController
 };
 
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:admin'])->group(function () {
@@ -28,4 +29,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:adm
     Route::resource('playground-surface-types', PlaygroundSurfaceTypesController::class);
     Route::resource('vendor-packages', VendorPackagesController::class);
     Route::get('get-vendor-package-data/{packageUid}', [VendorPackagesController::class, 'getPackageData'])->name('vendor-packages.getPackageData');
+    Route::resource('general-settings', GeneralSettingsController::class);
 });
