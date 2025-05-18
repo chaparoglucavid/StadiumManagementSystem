@@ -89,6 +89,26 @@ class LanguagesController extends Controller
         return view('admin-dashboard.settings.languages.show', compact('langWithTranslations'));
     }
 
+    public function updateTranslation(Request $request, $id)
+    {
+        $decryptedId = decrypt($id);
+        $language = Languages::findOrFail($decryptedId);
+
+        $translations = $request->input('value', []);
+
+        foreach ($translations as $key => $data) {
+            $translation = $language->translations()->where('key', $key)->first();
+
+            if ($translation) {
+                $translation->value = $data['value'];
+                $translation->save();
+            }
+        }
+
+        return redirect()->back()->with('success', 'Tərcümələr uğurla yeniləndi.');
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      */

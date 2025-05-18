@@ -19,8 +19,9 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <form method="post">
-                        @csrf
+                    <form method="post" action="{{ route('admin.update-translation', encrypt($langWithTranslations->uid)) }}">
+                    @csrf
+                    @method('PUT')
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped">
                                 <thead>
@@ -34,16 +35,17 @@
                                     @foreach ($langWithTranslations->translations ?? [] as $itemKey => $translations)
                                         <tr>
                                             <td>{{ $itemKey+1 }}</td>
+                                            <td>{{ $translations->key }}</td>
                                             <td>
-                                                {{ $translations->key }}
+                                                <input type="text" class="form-control" value="{{ $translations->value }}" name="value[{{ $translations->key }}][value]">
                                             </td>
-                                            <tr>
-                                                <input type="text" class="form-control" value="{{ $translations->value }}" name="value[$translations->key]['value']" id="">
-                                            </tr>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="text-end mt-3">
+                            <button type="submit" class="btn btn-primary">{{ t('update') }}</button>
                         </div>
                     </form>
                 </div>

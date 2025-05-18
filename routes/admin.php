@@ -23,6 +23,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:adm
     Route::resource('cities', CitiesController::class);
     Route::resource('regions', RegionsController::class);
     Route::resource('languages', LanguagesController::class);
+    Route::post('update-translation/{$lang_id}', [LanguagesController::class, 'updateTranslation'])->name('update-translation');
     Route::resource('features', FeaturesController::class);
     Route::resource('sport-types', SportTypesController::class);
     Route::resource('stadium-types', StadiumTypesController::class);
