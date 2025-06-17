@@ -11,17 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('translations', function (Blueprint $table) {
+        Schema::create('weekdays', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique();
-            $table->string('languages_uid');
-            $table->string('key');
-            $table->string('value');
+            $table->string('name');
             $table->softDeletes();
             $table->timestamps();
-
-            $table->index('languages_uid');
-            $table->foreign('languages_uid')->references('uid')->on('languages')->cascadeOnDelete();
         });
     }
 
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('translations');
+        Schema::dropIfExists('weekdays');
     }
 };

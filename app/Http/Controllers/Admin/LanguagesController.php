@@ -84,7 +84,7 @@ class LanguagesController extends Controller
         {
             flash('Məlumat tapılmadı. Zəhmət olmasa yenidən cəhd edin.', 'error');
             return redirect()->back();
-        } 
+        }
 
         return view('admin-dashboard.settings.languages.show', compact('langWithTranslations'));
     }

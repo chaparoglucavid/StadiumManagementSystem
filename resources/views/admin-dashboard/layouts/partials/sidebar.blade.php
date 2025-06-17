@@ -18,15 +18,11 @@
                     <i class="iconoir-home-alt"></i> {{ t('homepage') }}
                 </a>
             </li>
-            <li>
-                <a aria-expanded="false" class="" data-bs-toggle="collapse" href="#users">
-                    <i class="iconoir-group"></i>
-                    {{ t('users') }}
+
+            <li class="no-sub">
+                <a class="" href="{{ route('admin.users.index') }}">
+                    <i class="iconoir-group"></i> {{ t('users') }}
                 </a>
-                <ul class="collapse" id="users">
-                    <li><a href="{{ route('admin.users.index') }}">{{ t('customers') }}</a></li>
-                    <li><a href="#">{{ t('vendors') }}</a></li>
-                </ul>
             </li>
             <li class="no-sub">
                 <a class="" href="{{ route('admin.admin-dashboard') }}">

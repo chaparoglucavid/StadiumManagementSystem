@@ -95,7 +95,7 @@
                                     <span>
                                         <i class="ti ti-check"></i>
                                     </span>
-                                    {{ t('create') }}
+                                    {{ t('update') }}
                                 </button>
                             </div>
                         </form>

@@ -13,7 +13,7 @@
                                 <span>
                                     <i class="ti ti-arrow-autofit-left"></i>
                                 </span>
-                                Rayonlar
+                                {{ t('regions') }}
                             </button>
                         </a>
                     </div>
@@ -97,7 +97,7 @@
                                     <span>
                                         <i class="ti ti-check"></i>
                                     </span>
-                                    Yadda saxla
+                                    {{ t('update') }}
                                 </button>
                             </div>
                         </form>

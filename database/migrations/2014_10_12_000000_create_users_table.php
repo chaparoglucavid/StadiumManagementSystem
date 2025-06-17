@@ -21,7 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone')->unique();
             $table->date('birthday');
-            $table->string('type')->default('user');
+            $table->enum('type', ['user', 'admin', 'vendor'])->default('user');
             $table->string('role')->nullable();
             $table->enum('activityStatus', ['active', 'inactive', 'blocked'])->default('active');
             $table->dateTime('ban_end')->nullable();

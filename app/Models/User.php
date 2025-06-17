@@ -64,8 +64,16 @@ class User extends Authenticatable
         return $query->where('activityStatus', 'banned');
     }
 
-    public function scopeIsCostumer($query){
+    public function scopeIsCustomer($query){
         return $query->where('type', 'user');
+    }
+
+    public function scopeIsVendor($query){
+        return $query->where('type', 'vendor');
+    }
+
+    public function scopeIsAdmin($query){
+        return $query->where('type', 'admin');
     }
 
     public function stadiums(): \Illuminate\Database\Eloquent\Relations\HasMany

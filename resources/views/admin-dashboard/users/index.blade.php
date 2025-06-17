@@ -8,6 +8,36 @@
                         <h4>
                             {{ t('users') }}
                         </h4>
+
+                        <div>
+                            <a href="{{ route('admin.users.index') }}?group=SystemUsers">
+                                <button class="btn btn-sm btn-outline-primary">
+                                <span>
+                                    <i class="ti ti-user-check"></i>
+                                </span>
+                                    {{ t('admins') }}
+                                </button>
+                            </a>
+
+                            <a href="{{ route('admin.users.index') }}?group=Vendors">
+                                <button class="btn btn-sm btn-outline-primary">
+                                <span>
+                                    <i class="ti ti-user-check"></i>
+                                </span>
+                                    {{ t('vendors') }}
+                                </button>
+                            </a>
+
+                            <a href="{{ route('admin.users.index') }}?group=Customers">
+                                <button class="btn btn-sm btn-outline-primary">
+                                <span>
+                                    <i class="ti ti-user-check"></i>
+                                </span>
+                                    {{ t('users') }}
+                                </button>
+                            </a>
+                        </div>
+
                         <a href="{{ route('admin.users.create') }}">
                             <button class="btn btn-sm btn-outline-primary">
                                 <span>
@@ -38,7 +68,8 @@
                                 <tr>
                                     <td>#{{ $key+1 }}</td>
                                     <td class="d-flex align-items-center gap-2">
-                                        <span class="title-text mb-0">{{ $user->surname.' '.$user->name.' '.$user->fatherName }}</span>
+                                        <span
+                                            class="title-text mb-0">{{ $user->surname.' '.$user->name.' '.$user->fatherName }}</span>
                                     </td>
                                     <td>
                                         {{ $user->email }}
@@ -47,19 +78,31 @@
                                         {{ $user->phone }}
                                     </td>
                                     <td>
-                                        <span class="title-text mb-0">{{ \Carbon\Carbon::parse($user->created_at)->format('d.m.Y') }}</span>
+                                        <span
+                                            class="title-text mb-0">{{ \Carbon\Carbon::parse($user->created_at)->format('d.m.Y') }}</span>
                                     </td>
                                     <td>
-                                        <span
-                                            class="badge text-light-{{ $user->status === "active" ? 'success' : 'danger' }}">{{ $user->status === "active" ? 'Aktiv' : 'Deaktiv' }}</span>
+                                        @if($user->activityStatus === 'active')
+                                            <span class="badge text-light-success">
+                                                {{ t('active') }}
+                                            </span>
+                                        @elseif($user->activityStatus === 'inactive')
+                                            <span class="badge text-light-danger">
+                                                {{ t('inactive') }}
+                                            </span>
+                                        @else
+                                            <span class="badge text-light-secondary">
+                                                {{ t('blocked') }}
+                                            </span>
+                                        @endif
                                     </td>
                                     <td>
                                         <a class="btn btn-light-primary icon-btn w-30 h-30 b-r-22 me-2"
                                            href="{{ route('admin.features.edit', encrypt($user->uid)) }}"
-                                           role="button" target="_blank"> <i class="ti ti-eye"></i></a>
-                                        <a href="{{ route('admin.features.edit', encrypt($user->uid)) }}">
+                                           role="button" target="_blank"> <i class="ti ti-eye"></i>
+                                        </a>
+                                        <a href="{{ route('admin.users.edit', encrypt($user->uid)) }}">
                                             <button class="btn btn-light-success icon-btn w-30 h-30 b-r-22 me-2"
-                                                    data-bs-target="#staticBackdrop" data-bs-toggle="modal"
                                                     type="button">
                                                 <i class="ti ti-edit"></i>
                                             </button>

@@ -17,13 +17,13 @@ use App\Http\Controllers\Admin\{
 Route::prefix('admin')->name('admin.')->middleware(['auth', 'check_user_type:admin'])->group(function () {
     Route::get('/admin-dashboard', [DashboardController::class, 'index'])->name('admin-dashboard');
 
-    Route::post('change-language]', [DashboardController::class, 'change_language'])->name('change-language');
+    Route::post('change-language', [DashboardController::class, 'change_language'])->name('change-language');
 
     Route::resource('users', UsersController::class);
     Route::resource('cities', CitiesController::class);
     Route::resource('regions', RegionsController::class);
     Route::resource('languages', LanguagesController::class);
-    Route::post('update-translation/{$lang_id}', [LanguagesController::class, 'updateTranslation'])->name('update-translation');
+    Route::put('update-translation/{lang_id}', [LanguagesController::class, 'updateTranslation'])->name('update-translation');
     Route::resource('features', FeaturesController::class);
     Route::resource('sport-types', SportTypesController::class);
     Route::resource('stadium-types', StadiumTypesController::class);
